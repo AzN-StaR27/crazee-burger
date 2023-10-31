@@ -1,34 +1,78 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+
+// function App() {
+//   //state (état,données)
+//   const [firstName, setFirstName] = useState("");
+
+//   //comportement
+//   const handleChange = (event) => {
+//     setFirstName(event.target.value);
+//     console.log(firstName);
+//   };
+
+//   const handleSubmit = (event) => {
+//     event?.preventDefault();
+
+//     if (!firstName) {
+//       alert("Veuillez entrer un prénom");
+//     } else {
+//       alert(`Bonjour ${firstName}`);
+//     }
+//     setFirstName("");
+//   };
+
+//   //affichage (render)
+//   return (
+//     <div>
+//       <h1>Bienvenue chez nous !</h1>
+//       <h2>Connectez-vous</h2>
+
+//       <form onSubmit={handleSubmit}>
+//         <input
+//           value={firstName}
+//           onChange={handleChange}
+//           placeholder="Entrez votre prénom..."
+//           type="text"
+//         />
+//         <button type="submit">Accédez à votre espace</button>
+//       </form>
+//     </div>
+//   );
+// }
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [firstName, setFirstName] = useState("");
+  //données/déclaration
 
+  const handleChange = (event) => {
+    setFirstName(event.target.value);
+    console.log(firstName);
+  };
+
+  const handleSubmit = (event) => {
+    if (firstName) {
+      alert(`Bonjour ${firstName}`);
+    } else {
+      alert("Veuillez entrer un prénom");
+    }
+    setFirstName("");
+  };
+
+  //affichage
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Salut Veas</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div>
+      <h1>Bienvenue chez nous !</h1>
+      <h2>Connectez-vous</h2>
+      <form onSubmit={handleSubmit}>
+        <input
+          value={firstName}
+          onChange={handleChange}
+          type="text"
+          placeholder="Entrez votre prénom..."
+        />
+        <button>Accédez à votre espace</button>
+      </form>
+    </div>
   );
 }
 
