@@ -5,9 +5,9 @@ export default function OrderPage()
 {
     return(
     <div>
-<h1>Hellow World !</h1>
+<h1>Order Page</h1>
 <Link to={"/"}>
-    <button>DéconnexionF</button>
+    <button>Déconnexion</button>
 </Link>
     </div>
 
