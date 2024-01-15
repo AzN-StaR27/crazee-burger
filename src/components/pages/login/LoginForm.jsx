@@ -1,40 +1,55 @@
-import React from 'react'
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React from "react";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import styled from "styled-components";
+import { theme } from "../../../theme";
 
 export default function LoginForm() {
-
-
   //state
 
-  const [inputValue, setInputValue] = useState("")
+  const [inputValue, setInputValue] = useState("");
 
   const navigate = useNavigate();
 
-
-
-
   //comportement
 
-  const handleSubmit = (event) => { 
+  const handleSubmit = (event) => {
     event.preventDefault();
     setInputValue("");
     navigate(`order/${inputValue}`);
-   }
+  };
 
-  const handleChange = (event) => { 
+  const handleChange = (event) => {
     setInputValue(event.target.value);
-   }
+  };
 
   return (
-    <form action="submit" onSubmit={handleSubmit}>
-      <h1>Bienvenue chez nous !</h1>
-      <br />
-      <h2>Connectez-vous</h2>
-
-        <input value={inputValue} onChange={handleChange} type="text" placeholder='Entrez votre prénom...' required />
+    <LoginFormStyled action="submit" onSubmit={handleSubmit}>
+      <div>
+        <h1>Bienvenue chez nous !</h1>
+        <br />
+        <h2>Connectez-vous</h2>
+      </div>
+      <div>
+        <input
+          value={inputValue}
+          onChange={handleChange}
+          type="text"
+          placeholder="Entrez votre prénom"
+          required
+        />
         <button>Accédez à votre espace</button>
-
-      </form>
-  )
+      </div>
+    </LoginFormStyled>
+  );
 }
+
+const LoginFormStyled = styled.form`
+  border: 1px solid red;
+
+  h1 {
+    font-size: 40px;
+    color: ${theme.colors.primary};
+    background-color: green;
+  }
+`;
