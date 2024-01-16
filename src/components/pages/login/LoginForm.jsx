@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { theme } from "../../../theme";
+import { theme } from "../../../../F03/theme";
 
 export default function LoginForm() {
   //state
@@ -48,8 +48,9 @@ const LoginFormStyled = styled.form`
   border: 1px solid red;
 
   h1 {
-    font-size: 40px;
+    font-size: ${theme.fonts.P6};
+    text-transform: uppercase;
+    font-family: ;
     color: ${theme.colors.primary};
-    background-color: green;
   }
 `;
