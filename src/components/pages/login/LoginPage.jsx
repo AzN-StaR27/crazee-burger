@@ -1,13 +1,20 @@
-import React, { useState } from 'react'
-import LoginForm from './LoginForm'
+import LoginForm from "./LoginForm";
+import Logo from "./Logo";
+import styled from "styled-components";
 
 export default function LoginPage() {
-
   //state
 
   //comportement
 
   //affichage
-  return <LoginForm />
-  
+  return (
+    <LoginPageStyled>
+      <Logo /> <LoginForm />
+    </LoginPageStyled>
+  );
 }
+
+const LoginPageStyled = styled.div`
+  background: url() center cover;
+`;
