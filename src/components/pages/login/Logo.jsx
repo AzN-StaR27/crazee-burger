@@ -26,6 +26,7 @@ const LogoStyled = styled.div`
   }
 
   img {
-    width: ${theme.fonts.P6};
+    width: 120px;
+    margin: 0 8px;
   }
 `;

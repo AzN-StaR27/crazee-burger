@@ -16,5 +16,10 @@ export default function LoginPage() {
 }
 
 const LoginPageStyled = styled.div`
-  background: url() center cover;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
 `;
