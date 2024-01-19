@@ -23,6 +23,7 @@ const LogoStyled = styled.div`
     font-family: "Amatic SC", sans-serif;
     font-weight: bold;
     text-transform: uppercase;
+    cursor: default;
   }
 
   img {

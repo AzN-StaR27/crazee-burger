@@ -32,6 +32,7 @@ export default function LoginForm() {
         <h2>Connectez-vous</h2>
       </div>
       <div className="cta-container">
+        <FaUserCircle />
         <input
           value={inputValue}
           onChange={handleChange}
