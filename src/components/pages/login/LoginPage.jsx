@@ -1,5 +1,5 @@
+import Logo from "../../reusable-ui/Logo";
 import LoginForm from "./LoginForm";
-import Logo from "./Logo";
 import styled from "styled-components";
 
 export default function LoginPage() {
@@ -16,6 +16,9 @@ export default function LoginPage() {
 }
 
 const LoginPageStyled = styled.div`
+  background: url("/images/burger-and-fries-background.jpg") center/cover
+    rgba(0, 0, 0, 0.7);
+  background-blend-mode: darken;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -23,7 +26,7 @@ const LoginPageStyled = styled.div`
   justify-content: center;
   gap: 50px;
 
-  ::before {
+  /* ::before {
     content: "";
     background: url("/images/burger-and-fries-background.jpg")
       rgba(0, 0, 0, 0.7);
@@ -37,5 +40,5 @@ const LoginPageStyled = styled.div`
     right: 0;
     bottom: 0;
     z-index: -1;
-  }
+  } */
 `;

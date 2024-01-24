@@ -3,7 +3,8 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { theme } from "../../../../F03/theme";
-import { FaUserCircle } from "react-icons/fa";
+import { BsPersonCircle } from "react-icons/bs";
+import { IoChevronForward } from "react-icons/io5";
 
 export default function LoginForm() {
   //state
@@ -28,19 +29,24 @@ export default function LoginForm() {
     <LoginFormStyled action="submit" onSubmit={handleSubmit}>
       <div>
         <h1>Bienvenue chez nous !</h1>
-        <br />
+        <hr />
         <h2>Connectez-vous</h2>
       </div>
       <div className="cta-container">
-        <FaUserCircle />
-        <input
-          value={inputValue}
-          onChange={handleChange}
-          type="text"
-          placeholder="Entrez votre prénom"
-          required
-        />
-        <button>Accédez à votre espace</button>
+        <div className="input-with-icon">
+          <BsPersonCircle className="icon" />
+          <input
+            value={inputValue}
+            onChange={handleChange}
+            type="text"
+            placeholder="Entrez votre prénom"
+            required
+          />
+        </div>
+        <button className="button-with-icon">
+          <span>Accédez à votre espace</span>
+          <IoChevronForward className="icon" />
+        </button>
       </div>
     </LoginFormStyled>
   );
@@ -52,54 +58,102 @@ const LoginFormStyled = styled.form`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  font-family: "Amatic SC", sans-serif;
+  max-width: 500px;
+  min-width: 400px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem;
+  border-radius: 5px;
+  font-family: "Amatic SC", cursive;
+  text-align: center;
 
-  h1,
+  hr {
+    border: 1.5px solid #f56a2c;
+    margin-bottom: 40px;
+  }
+
+  h1 {
+    color: white;
+    font-size: 48px;
+  }
+
   h2 {
-    font-family: "Amatic SC", sans-serif;
-    color: ${theme.colors.white};
-    position: relative;
-    text-align: center;
+    color: #8e8b8b;
+    margin: 20px 10px 10px;
+    font-size: 36px;
   }
 
-  h1::after {
-    content: "";
-    background-color: ${theme.colors.primary_burger};
-    height: 3px;
-    width: 500px;
-    position: absolute;
-    top: 80px;
-    left: -70%;
-  }
-
-  input {
-    height: 40px;
-    width: 300px;
+  .input-with-icon {
+    /* border: 1px solid red; */
+    background-color: #fff;
     border-radius: 5px;
-    padding-left: 40px;
-    border: none;
-  }
-
-  button {
-    color: ${theme.colors.white};
-    background-color: ${theme.colors.primary};
-    height: 40px;
-    width: 340px;
-    border: none;
-    border-radius: 5px;
-    margin-top: 10px;
-    position: relative;
-  }
-
-  button::after {
-    content: ">";
-    font-size: large;
-    position: absolute;
-    top: 11px;
-    left: 80%;
-  }
-
-  .cta-container {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    padding: 18px 24px;
+    margin: 18px 0;
+
+    .icon {
+      color: #93a2b1;
+      margin-right: 8px;
+      font-size: 15px;
+    }
+
+    input {
+      border: none;
+      font-size: 15px;
+      color: #17161a;
+      /* width: 100%; */
+    }
+
+    &::placeholder {
+      background: white;
+      color: lightgrey;
+    }
+  }
+
+  .button-with-icon {
+    width: 100%;
+    /* border: 1px solid red; */
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    white-space: nowrap;
+    text-decoration: none;
+    line-height: 1;
+
+    padding: 18px 24px;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 800;
+    color: white;
+    background-color: #ff9f1b;
+    border: 1px solid #ff9f1b;
+
+    &:hover:not(:disabled) {
+      background-color: white;
+      color: #ff9f1b;
+      border: 1px solid #ff9f1b;
+      transition: all 200ms ease-out;
+    }
+
+    &:active {
+      color: white;
+      background-color: #ff9f1b;
+      border: 1px solid #ff9f1b;
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 15px;
+      max-lines: 10px;
+    }
   }
 `;
