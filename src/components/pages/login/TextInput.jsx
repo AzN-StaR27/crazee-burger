@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-export default function Input({ value, onChange, Icon, ...restProps }) {
+export default function TextInput({ value, onChange, Icon, ...extraProps }) {
   return (
     <InputStyled>
       {Icon && Icon}
-      <input value={value} onChange={onChange} type="text" {...restProps} />
+      <input value={value} onChange={onChange} type="text" {...extraProps} />
     </InputStyled>
   );
 }
