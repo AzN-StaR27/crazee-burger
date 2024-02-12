@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { theme } from "../../../../F03/theme";
+import { theme } from "../../../theme";
 import { IoChevronForward } from "react-icons/io5";
 import TextInput from "../../reusable-ui/TextInput";
 import { BsPersonCircle } from "react-icons/bs";
@@ -61,32 +61,32 @@ const LoginFormStyled = styled.form`
   max-width: 500px;
   min-width: 400px;
   margin: 0 auto;
-  padding: 2.5rem 2rem;
-  border-radius: 5px;
+  padding: 40px ${theme.spacing.lg};
+  border-radius: ${theme.borderRadius.round};
   font-family: "Amatic SC", cursive;
   text-align: center;
 
   hr {
-    border: 1.5px solid #f56a2c;
-    margin-bottom: 40px;
+    border: 1.5px solid ${theme.colors.loginLine};
+    margin-bottom: ${theme.gridUnit * 5}px;
   }
 
   h1 {
-    color: white;
-    font-size: 48px;
+    color: ${theme.colors.white};
+    font-size: ${theme.fonts.size.P5};
   }
 
   h2 {
-    color: #8e8b8b;
+    color: ${theme.colors.white};
     margin: 20px 10px 10px;
-    font-size: 36px;
+    font-size: ${theme.fonts.size.P4};
   }
 
   .icon {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 15px;
+    font-size: ${theme.fonts.size.P0};
     margin-left: 10px;
   }
 `;
