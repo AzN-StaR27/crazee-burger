@@ -10,7 +10,7 @@ export default function LoginPage() {
   //affichage
   return (
     <LoginPageStyled>
-      <Logo /> <LoginForm />
+      <Logo className={"logo-login-page"} /> <LoginForm />
     </LoginPageStyled>
   );
 }
@@ -25,6 +25,10 @@ const LoginPageStyled = styled.div`
   align-items: center;
   justify-content: center;
   gap: 50px;
+
+  .logo-login-page {
+    transform: scale(2.5);
+  }
 
   /* ::before {
     content: "";
