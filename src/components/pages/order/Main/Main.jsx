@@ -6,14 +6,19 @@ export default function Main() {
   return (
     <MainStyled>
       {/* <div className="basket">Basket</div> */}
-      <Menu />
+      <div className="menu-and-admin">
+        <Menu />
+        <div className="admin">Admin</div>
+      </div>
     </MainStyled>
   );
 }
 
 const MainStyled = styled.div`
+  border: 3px solid green;
   background: ${theme.colors.background_white};
-  flex: 1; // you can also use this : height: calc(95vh - 10vh);
+  //flex : 1;
+  height: calc(95vh - 10vh); //95vh (le container) - 10vh (height du basket)
 
   border-bottom-left-radius: ${theme.borderRadius.extraRound};
   border-bottom-right-radius: ${theme.borderRadius.extraRound};
@@ -22,9 +27,25 @@ const MainStyled = styled.div`
   display: grid;
   grid-template-columns: 1fr;
 
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
 
-  /* .basket {
+  .basket {
     background: pink;
-  } */
+  }
+
+  .menu-and-admin {
+    position: relative;
+    overflow-y: hidden;
+    display: grid;
+    border-bottom-left-radius: ${theme.borderRadius.extraRound};
+    border-bottom-right-radius: ${theme.borderRadius.extraRound};
+    .admin {
+      background: red;
+      height: 250px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+  }
 `;

@@ -17,7 +17,7 @@ const NavbarStyled = styled.nav`
   height: 10vh;
   display: flex;
   justify-content: space-between;
-  padding: 020px;
+  padding: 0 20px;
 
   border-top-left-radius: ${theme.borderRadius.extraRound};
   border-top-right-radius: ${theme.borderRadius.extraRound};
