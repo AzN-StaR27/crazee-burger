@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { theme } from "../../../../../theme";
 import AdminTabs from "./AdminTabs";
 import AdminPanel from "./AdminPanel";
 
 export default function Admin() {
+  const [isCollapsed, setIsCollapsed] = useState(false);
+  //collapse pour onglet réduit
+
   return (
     <AdminStyled className="admin">
-      <AdminTabs />
-      <AdminPanel />
+      <AdminTabs isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} />
+      {!isCollapsed && <AdminPanel />}
     </AdminStyled>
   );
 }
