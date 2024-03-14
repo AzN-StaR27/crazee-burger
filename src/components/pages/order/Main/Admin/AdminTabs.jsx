@@ -29,6 +29,18 @@ export default function AdminTabs() {
     setIsEditSelected(true);
   };
 
+  const selectTab = (tabSelected) => {
+    setIsCollapsed(false);
+
+    if (tabSelected === "add") {
+      setIsAddSelected(true);
+      setIsEditSelected(false);
+    } else if (tabSelected === "edit") {
+      setIsAddSelected(false);
+      setIsEditSelected(true);
+    }
+  };
+
   return (
     <AdminTabsStyled>
       <Tab
@@ -42,13 +54,13 @@ export default function AdminTabs() {
       <Tab
         label={"Ajouter un produit"}
         Icon={<AiOutlinePlus />}
-        onClick={selectAddTab}
+        onClick={() => selectTab("add")}
         className={isAddSelected ? "is-active" : ""}
       />
       <Tab
         label={"Modifier un produit"}
         Icon={<MdModeEditOutline />}
-        onClick={selectEditTab}
+        onClick={() => selectTab("edit")}
         className={isEditSelected ? "is-active" : ""}
       />
     </AdminTabsStyled>
