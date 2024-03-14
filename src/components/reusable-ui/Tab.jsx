@@ -55,4 +55,8 @@ const TabStyled = styled.button`
   .label {
     margin-left: 13px;
   }
+
+  .label:hover {
+    text-decoration: underline;
+  }
 `;

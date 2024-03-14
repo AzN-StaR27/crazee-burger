@@ -10,10 +10,23 @@ export default function OrderPage() {
   //state
 
   const [isModeAdmin, setIsModeAdmin] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(false);
+  //collapse pour onglet réduit
+  const [isAddSelected, setIsAddSelected] = useState(false);
+  const [isEditSelected, setIsEditSelected] = useState(false);
 
   //comportement
 
-  const orderContextValue = { isModeAdmin, setIsModeAdmin };
+  const orderContextValue = {
+    isModeAdmin,
+    setIsModeAdmin,
+    isCollapsed,
+    setIsCollapsed,
+    isAddSelected,
+    setIsAddSelected,
+    isEditSelected,
+    setIsEditSelected,
+  };
   //On a pas besoin d'écrire isModeAdmin: isModeAdmin quand les "noms" sont les mêmes
 
   //affichage
