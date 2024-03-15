@@ -14,6 +14,7 @@ export default function OrderPage() {
   //collapse pour onglet réduit
   const [isAddSelected, setIsAddSelected] = useState(false);
   const [isEditSelected, setIsEditSelected] = useState(false);
+  const [currentPageSelected, setcurrentPageSelected] = useState("add");
 
   //comportement
 
@@ -26,6 +27,8 @@ export default function OrderPage() {
     setIsAddSelected,
     isEditSelected,
     setIsEditSelected,
+    currentPageSelected,
+    setcurrentPageSelected,
   };
   //On a pas besoin d'écrire isModeAdmin: isModeAdmin quand les "noms" sont les mêmes
 
