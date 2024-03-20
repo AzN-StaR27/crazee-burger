@@ -9,6 +9,6 @@ export default createContext({
   setIsAddSelected: () => {},
   isEditSelected: false,
   setIsEditSelected: () => {},
-  currentPageSelected: "",
-  setcurrentPageSelected: () => {},
+  currentTabSelected: "",
+  setCurrentTabSelected: () => {},
 });

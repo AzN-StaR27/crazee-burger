@@ -10,15 +10,15 @@ export default function AdminTabs() {
   const {
     isCollapsed,
     setIsCollapsed,
-    currentPageSelected,
-    setcurrentPageSelected,
+    currentTabSelected,
+    setCurrentTabSelected,
   } = useContext(OrderContext);
 
-  const tabs = getTabsConfig(currentPageSelected);
+  const tabs = getTabsConfig(currentTabSelected);
 
   const selectTab = (tabSelected) => {
     setIsCollapsed(false); //ouvre moi le panel ds ts les cas
-    setcurrentPageSelected(tabSelected); //réactualise l'onglet sélectionné
+    setCurrentTabSelected(tabSelected); //réactualise l'onglet sélectionné
   };
 
   //affichage
@@ -41,7 +41,7 @@ export default function AdminTabs() {
             onClick={() => {
               selectTab(tab.index);
             }}
-            className={tab.className}
+            className={currentTabSelected == tab.index ? "is-active" : ""}
           />
         );
       })}
