@@ -3,22 +3,45 @@ import styled from "styled-components";
 import Navbar from "./Navbar/Navbar";
 import Main from "./Main/Main";
 import { theme } from "../../../theme";
+import OrderContext from "../../../context/OrderContext.jsx";
+import { useState } from "react";
 
 export default function OrderPage() {
   //state
 
-  const { username } = useParams();
+  const [isModeAdmin, setIsModeAdmin] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(false);
+  //collapse pour onglet réduit
+  const [isAddSelected, setIsAddSelected] = useState(false);
+  const [isEditSelected, setIsEditSelected] = useState(false);
+  const [currentTabSelected, setCurrentTabSelected] = useState("add");
 
   //comportement
 
+  const orderContextValue = {
+    isModeAdmin,
+    setIsModeAdmin,
+    isCollapsed,
+    setIsCollapsed,
+    isAddSelected,
+    setIsAddSelected,
+    isEditSelected,
+    setIsEditSelected,
+    currentTabSelected,
+    setCurrentTabSelected,
+  };
+  //On a pas besoin d'écrire isModeAdmin: isModeAdmin quand les "noms" sont les mêmes
+
   //affichage
   return (
-    <OrderPageStyled>
-      <div className="container">
-        <Navbar username={username} />
-        <Main />
-      </div>
-    </OrderPageStyled>
+    <OrderContext.Provider value={orderContextValue}>
+      <OrderPageStyled>
+        <div className="container">
+          <Navbar />
+          <Main />
+        </div>
+      </OrderPageStyled>
+    </OrderContext.Provider>
   );
 }
 

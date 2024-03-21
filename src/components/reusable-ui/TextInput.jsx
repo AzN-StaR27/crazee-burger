@@ -22,12 +22,12 @@ const InputStyled = styled.div`
   .icon {
     color: ${theme.colors.greySemiDark};
     margin-right: 8px;
-    font-size: ${theme.fonts.size.P0};
+    font-size: ${theme.fonts.size.SM};
   }
 
   input {
     border: none;
-    font-size: ${theme.fonts.size.P0};
+    font-size: ${theme.fonts.size.SM};
     color: ${theme.colors.dark};
     width: 100%;
     &::placeholder {
