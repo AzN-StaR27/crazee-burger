@@ -1,19 +1,8 @@
 import React from "react";
 import { AiOutlinePlus } from "react-icons/ai";
-import { MdModeEditOutline, MdOutlineLocalDrink } from "react-icons/md";
-import { BiSun } from "react-icons/bi";
-import { GiBaseballGlove } from "react-icons/gi";
+import { MdModeEditOutline } from "react-icons/md";
 
 export const getTabsConfig = () => [
-  // {
-  //   index:"chevronUpDown",
-  //   label: "",
-  //   Icon: isCollapsed ? <FiChevronUp /> : <FiChevronDown />,
-  //   onClick: () => {
-  //     setIsCollapsed(!isCollapsed);
-  //   },
-  //   className: isCollapsed ? "is-active" : "",
-  // },
   {
     index: "add",
     label: "Ajouter un produit",
@@ -24,21 +13,6 @@ export const getTabsConfig = () => [
     label: "Modifier un produit",
     Icon: <MdModeEditOutline />,
   },
-  // {
-  //   index: "theme",
-  //   label: "Changer theme",
-  //   Icon: <BiSun />,
-  // },
-  // {
-  //   index: "drink",
-  //   label: "Boire un verre",
-  //   Icon: <MdOutlineLocalDrink />,
-  // },
-  // {
-  //   index: "baseball",
-  //   label: "HomeRun",
-  //   Icon: <GiBaseballGlove />,
-  // },
 ];
 //tabsConfig est une fonction qui renvoit un tableau : () => []
 //transformer en fonction permet de pouvoir envoyer des parametres dont la fonction aurait besoin, ici currentPageSelected,
