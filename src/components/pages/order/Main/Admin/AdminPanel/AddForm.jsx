@@ -1,15 +1,25 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import OrderContext from "../../../../../../context/OrderContext";
 
 export default function AddForm() {
   const { handleAdd } = useContext(OrderContext);
 
+  const [title, setTitle] = useState("Nouveau Burger");
+  const [imageSource, setImageSource] = useState("");
+  const [price, setPrice] = useState(0);
+
+  // const newProduct = {
+  //   id: new Date().getTime(),
+  //   title: "nouveau produit",
+  //   imageSource: "../../../../../public/images/burger1.png",
+  //   price: 2.5,
+  // };
+
   const newProduct = {
-    id: new Date().getTime(),
-    title: "nouveau produit",
-    imageSource: "../../../../../public/images/burger1.png",
-    price: 2.5,
+    title,
+    imageSource,
+    price,
   };
 
   const handleSubmit = (event) => {
@@ -17,13 +27,41 @@ export default function AddForm() {
     handleAdd(newProduct);
   };
 
+  const handleTitleChange = (event) => {
+    console.log("event.target.value :", event.target.value);
+    setTitle(event.target.value);
+  };
+  const handleImageChange = (event) => {
+    console.log("event.target.value :", event.target.value);
+    setImageSource(event.target.value);
+  };
+  const handlePriceChange = (event) => {
+    console.log("event.target.value :", event.target.value);
+    setPrice(event.target.value);
+  };
+
   return (
     <AddFormStyled onSubmit={handleSubmit}>
-      <div className="image-preview">imagePreview</div>
+      <div className="image-preview">Aucune image</div>
       <div className="input-fields">
-        <input type="text" placeholder="Nom" />
-        <input type="text" placeholder="Image URL" />
-        <input type="text" placeholder="Prix" />
+        <input
+          value={title}
+          onChange={handleTitleChange}
+          type="text"
+          placeholder="Nom"
+        />
+        <input
+          value={imageSource}
+          onChange={handleImageChange}
+          type="text"
+          placeholder="Image URL"
+        />
+        <input
+          value={price}
+          onChange={handlePriceChange}
+          type="text"
+          placeholder="Prix"
+        />
       </div>
       <button className="submit-button">Submit button</button>
     </AddFormStyled>
