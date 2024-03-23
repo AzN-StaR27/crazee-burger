@@ -2,42 +2,30 @@ import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import OrderContext from "../../../../../../context/OrderContext";
 
+const EMPTY_PRODUCT = {
+  id: "",
+  title: "Sam",
+  imageSource: "",
+  price: 14,
+};
+
 export default function AddForm() {
   const { handleAdd } = useContext(OrderContext);
 
-  const [title, setTitle] = useState("Nouveau Burger");
-  const [imageSource, setImageSource] = useState("");
-  const [price, setPrice] = useState(0);
-
-  // const newProduct = {
-  //   id: new Date().getTime(),
-  //   title: "nouveau produit",
-  //   imageSource: "../../../../../public/images/burger1.png",
-  //   price: 2.5,
-  // };
-
-  const newProduct = {
-    title,
-    imageSource,
-    price,
-  };
+  const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    handleAdd(newProduct);
+    const newProductToAdd = {
+      ...newProduct,
+      id: crypto.randomUUID(),
+    };
+    handleAdd(newProductToAdd);
   };
 
-  const handleTitleChange = (event) => {
-    console.log("event.target.value :", event.target.value);
-    setTitle(event.target.value);
-  };
-  const handleImageChange = (event) => {
-    console.log("event.target.value :", event.target.value);
-    setImageSource(event.target.value);
-  };
-  const handlePriceChange = (event) => {
-    console.log("event.target.value :", event.target.value);
-    setPrice(event.target.value);
+  const handleChange = (event) => {
+    const { value, name } = event.target;
+    setNewProduct({ ...newProduct, [name]: value });
   };
 
   return (
@@ -45,20 +33,23 @@ export default function AddForm() {
       <div className="image-preview">Aucune image</div>
       <div className="input-fields">
         <input
-          value={title}
-          onChange={handleTitleChange}
+          name="title"
+          value={newProduct.title}
+          onChange={handleChange}
           type="text"
           placeholder="Nom"
         />
         <input
-          value={imageSource}
-          onChange={handleImageChange}
+          name="imageSource"
+          value={newProduct.imageSource}
+          onChange={handleChange}
           type="text"
           placeholder="Image URL"
         />
         <input
-          value={price}
-          onChange={handlePriceChange}
+          name="price"
+          value={newProduct.price ? newProduct.price : ""}
+          onChange={handleChange}
           type="text"
           placeholder="Prix"
         />
