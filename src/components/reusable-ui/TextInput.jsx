@@ -1,10 +1,16 @@
 import styled from "styled-components";
 import { theme } from "../../theme";
 
-export default function TextInput({ value, onChange, Icon, ...extraProps }) {
+export default function TextInput({
+  value,
+  onChange,
+  Icon,
+  className,
+  ...extraProps
+}) {
   return (
-    <InputStyled>
-      {Icon && Icon}
+    <InputStyled className={className}>
+      <div className="icon">{Icon && Icon}</div>
       <input value={value} onChange={onChange} type="text" {...extraProps} />
     </InputStyled>
   );
@@ -12,17 +18,19 @@ export default function TextInput({ value, onChange, Icon, ...extraProps }) {
 
 const InputStyled = styled.div`
   /* border: 1px solid red; */
-  background-color: #fff;
+  background-color: ${theme.colors.white};
   border-radius: ${theme.borderRadius.round};
   display: flex;
   align-items: center;
   padding: 18px 24px;
-  margin: 18px 0;
 
   .icon {
-    color: ${theme.colors.greySemiDark};
-    margin-right: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: ${theme.fonts.size.SM};
+    margin: 0 8px 0 10px;
+    color: ${theme.colors.greySemiDark};
   }
 
   input {
