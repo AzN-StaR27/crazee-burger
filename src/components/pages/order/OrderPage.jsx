@@ -28,6 +28,17 @@ export default function OrderPage() {
 
   //comportement
 
+  const handleDelete = (idOfProductToDelete) => {
+    const menuCopy = [...menu];
+
+    const menuUpdated = menuCopy.filter(
+      (product) => product.id !== idOfProductToDelete
+    );
+    console.log("menu updated : ", menuUpdated);
+
+    setMenu(menuUpdated);
+  };
+
   const orderContextValue = {
     isModeAdmin,
     setIsModeAdmin,
@@ -41,6 +52,7 @@ export default function OrderPage() {
     setCurrentTabSelected,
     menu,
     handleAdd,
+    handleDelete,
   };
   //On a pas besoin d'écrire isModeAdmin: isModeAdmin quand les "noms" sont les mêmes
 
