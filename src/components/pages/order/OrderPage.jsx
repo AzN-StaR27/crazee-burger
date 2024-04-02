@@ -6,7 +6,7 @@ import { theme } from "../../../theme";
 import OrderContext from "../../../context/OrderContext.jsx";
 import { useState } from "react";
 import { fakeMenu } from "../../../fakeData/fakeMenu.js";
-
+import { EMPTY_PRODUCT } from "./Main/Admin/AdminPanel/AddForm.jsx";
 export default function OrderPage() {
   //state
 
@@ -17,6 +17,7 @@ export default function OrderPage() {
   const [isEditSelected, setIsEditSelected] = useState(false);
   const [currentTabSelected, setCurrentTabSelected] = useState("add");
   const [menu, setMenu] = useState(fakeMenu.SMALL);
+  const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
 
   const handleAdd = (newProduct) => {
     const menuCopy = [...menu];
@@ -59,6 +60,8 @@ export default function OrderPage() {
     handleAdd,
     handleDelete,
     resetMenu,
+    newProduct,
+    setNewProduct,
   };
   //On a pas besoin d'écrire isModeAdmin: isModeAdmin quand les "noms" sont les mêmes
 
