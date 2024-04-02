@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import Navbar from "./Navbar/Navbar";
-import Main from "./Main/Main";
+import Main from "./Main/MainRightSide/Main.jsx";
 import { theme } from "../../../theme";
 import OrderContext from "../../../context/OrderContext.jsx";
 import { useState } from "react";
@@ -40,7 +40,8 @@ export default function OrderPage() {
   };
 
   const resetMenu = () => {
-    setMenu(fakeMenu.MEDIUM);
+    setMenu(fakeMenu.SMALL);
+    console.log("ok cool ?");
   };
 
   const orderContextValue = {
