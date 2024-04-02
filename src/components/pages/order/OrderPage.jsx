@@ -11,12 +11,12 @@ export default function OrderPage() {
   //state
 
   const [isModeAdmin, setIsModeAdmin] = useState(true);
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(true);
   //collapse pour onglet réduit
   const [isAddSelected, setIsAddSelected] = useState(false);
   const [isEditSelected, setIsEditSelected] = useState(false);
   const [currentTabSelected, setCurrentTabSelected] = useState("add");
-  const [menu, setMenu] = useState(fakeMenu.MEDIUM);
+  const [menu, setMenu] = useState(fakeMenu.SMALL);
 
   const handleAdd = (newProduct) => {
     const menuCopy = [...menu];
@@ -39,6 +39,10 @@ export default function OrderPage() {
     setMenu(menuUpdated);
   };
 
+  const resetMenu = () => {
+    setMenu(fakeMenu.MEDIUM);
+  };
+
   const orderContextValue = {
     isModeAdmin,
     setIsModeAdmin,
@@ -53,6 +57,7 @@ export default function OrderPage() {
     menu,
     handleAdd,
     handleDelete,
+    resetMenu,
   };
   //On a pas besoin d'écrire isModeAdmin: isModeAdmin quand les "noms" sont les mêmes
 
