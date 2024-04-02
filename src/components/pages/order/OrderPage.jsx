@@ -11,7 +11,7 @@ export default function OrderPage() {
   //state
 
   const [isModeAdmin, setIsModeAdmin] = useState(true);
-  const [isCollapsed, setIsCollapsed] = useState(true);
+  const [isCollapsed, setIsCollapsed] = useState(false);
   //collapse pour onglet réduit
   const [isAddSelected, setIsAddSelected] = useState(false);
   const [isEditSelected, setIsEditSelected] = useState(false);
