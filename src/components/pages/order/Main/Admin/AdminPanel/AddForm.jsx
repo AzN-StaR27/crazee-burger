@@ -7,6 +7,7 @@ import { BsFillCameraFill } from "react-icons/bs";
 import { MdOutlineEuro } from "react-icons/md";
 import { theme } from "../../../../../../theme";
 import TextInput from "../../../../../reusable-ui/TextInput.jsx";
+import Button from "../../../../../reusable-ui/Button.jsx";
 
 const EMPTY_PRODUCT = {
   id: "",
@@ -84,7 +85,11 @@ export default function AddForm() {
         />
       </div>
       <div className="submit">
-        <button className="submit-button">Submit button</button>
+        <Button
+          label="Ajouter un nouveau produit au menu"
+          className="submit-button"
+          version="success"
+        />
         {isSubmitted && (
           <div className="submit-message">
             <FiCheck />
