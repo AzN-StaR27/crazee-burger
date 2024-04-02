@@ -1,13 +1,14 @@
 import React, { useContext, useState } from "react";
 import styled from "styled-components";
-import OrderContext from "../../../../../../context/OrderContext";
+import OrderContext from "../../../../../../../context/OrderContext.jsx";
 import { FiCheck } from "react-icons/fi";
 import { FaHamburger } from "react-icons/fa";
 import { BsFillCameraFill } from "react-icons/bs";
 import { MdOutlineEuro } from "react-icons/md";
-import { theme } from "../../../../../../theme";
-import TextInput from "../../../../../reusable-ui/TextInput.jsx";
-import Button from "../../../../../reusable-ui/Button.jsx";
+import { theme } from "../../../../../../../theme/index.js";
+import TextInput from "../../../../../../reusable-ui/TextInput.jsx";
+import Button from "../../../../../../reusable-ui/Button.jsx";
+import ImagePreview from "./ImagePreview.jsx";
 
 export const EMPTY_PRODUCT = {
   id: "",
@@ -48,13 +49,10 @@ export default function AddForm() {
 
   return (
     <AddFormStyled onSubmit={handleSubmit}>
-      <div className="image-preview">
-        {newProduct.imageSource ? (
-          <img src={newProduct.imageSource} alt={newProduct.title} />
-        ) : (
-          <div className="empty-image">Aucune image</div>
-        )}
-      </div>
+      <ImagePreview
+        imageSource={newProduct.imageSource}
+        title={newProduct.title}
+      />
       <div className="input-fields">
         <TextInput
           name="title"

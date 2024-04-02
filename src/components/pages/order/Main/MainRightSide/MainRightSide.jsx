@@ -2,7 +2,7 @@ import { useContext } from "react";
 import styled from "styled-components";
 import OrderContext from "../../../../../context/OrderContext.jsx";
 import { theme } from "../../../../../theme/index.js";
-import Admin from "../Admin/Admin.jsx";
+import Admin from "./Admin/Admin.jsx";
 import Menu from "./Menu/Menu.jsx";
 
 export default function MainRightSide() {

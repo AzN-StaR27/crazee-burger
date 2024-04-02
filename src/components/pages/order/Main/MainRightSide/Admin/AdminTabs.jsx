@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import Tab from "../../../../reusable-ui/Tab";
+import Tab from "../../../../../reusable-ui/Tab.jsx";
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
-import { theme } from "../../../../../theme";
+import { theme } from "../../../../../../theme";
 import { useContext } from "react";
-import OrderContext from "../../../../../context/OrderContext";
+import OrderContext from "../../../../../../context/OrderContext.jsx";
 import { TabsConfig } from "./TabsConfig";
 export default function AdminTabs() {
   const {

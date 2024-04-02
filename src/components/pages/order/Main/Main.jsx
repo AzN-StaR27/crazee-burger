@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { theme } from "../../../../../theme/index.js";
-import MainRightSide from "./MainRightSide.jsx";
+import { theme } from "../../../../theme/index.js";
+import MainRightSide from "./MainRightSide/MainRightSide.jsx";
 
 export default function Main() {
   return (

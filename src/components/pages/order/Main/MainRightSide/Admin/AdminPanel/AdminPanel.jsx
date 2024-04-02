@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { theme } from "../../../../../../theme";
+import { theme } from "../../../../../../../theme";
 import { useContext } from "react";
-import OrderContext from "../../../../../../context/OrderContext";
+import OrderContext from "../../../../../../../context/OrderContext.jsx";
 import { getTabSelected, TabsConfig } from "../TabsConfig";
 
 export default function AdminPanel() {

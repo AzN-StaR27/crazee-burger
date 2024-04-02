@@ -1,12 +1,12 @@
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import Navbar from "./Navbar/Navbar";
-import Main from "./Main/MainRightSide/Main.jsx";
+import Main from "./Main/Main.jsx";
 import { theme } from "../../../theme";
 import OrderContext from "../../../context/OrderContext.jsx";
 import { useState } from "react";
 import { fakeMenu } from "../../../fakeData/fakeMenu.js";
-import { EMPTY_PRODUCT } from "./Main/Admin/AdminPanel/AddForm.jsx";
+import { EMPTY_PRODUCT } from "./Main/MainRightSide/Admin/AdminPanel/AddForm.jsx";
 export default function OrderPage() {
   //state
 
@@ -42,7 +42,6 @@ export default function OrderPage() {
 
   const resetMenu = () => {
     setMenu(fakeMenu.SMALL);
-    console.log("ok cool ?");
   };
 
   const orderContextValue = {
