@@ -10,7 +10,7 @@ import { EMPTY_PRODUCT } from "./Main/MainRightSide/Admin/AdminPanel/AddForm.jsx
 export default function OrderPage() {
   //state
 
-  const [isModeAdmin, setIsModeAdmin] = useState(true);
+  const [isModeAdmin, setIsModeAdmin] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(false);
   //collapse pour onglet réduit
   const [isAddSelected, setIsAddSelected] = useState(false);
