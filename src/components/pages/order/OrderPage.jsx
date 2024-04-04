@@ -1,4 +1,3 @@
-import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import Navbar from "./Navbar/Navbar";
 import Main from "./Main/Main.jsx";
@@ -21,7 +20,7 @@ export default function OrderPage() {
   const [productSelected, setProductSelected] = useState(EMPTY_PRODUCT);
 
   const handleAdd = (newProduct) => {
-    const menuCopy = [...menu];
+    const menuCopy = JSON.parse(JSON.stringify(menu));
 
     const menuUpdated = [newProduct, ...menuCopy];
 
@@ -39,6 +38,20 @@ export default function OrderPage() {
     console.log("menu updated : ", menuUpdated);
 
     setMenu(menuUpdated);
+  };
+
+  const handleEdit = (productBeingEdited) => {
+    //1. copie du state (deep clone)
+    const menuCopy = JSON.parse(JSON.stringify(menu));
+
+    //2. manip de la copie du state
+    const productIndex = menu.findIndex(
+      (menuProduct) => menuProduct.id === productBeingEdited.id
+    );
+    menuCopy[productIndex] = productBeingEdited;
+
+    //3. update du state
+    setMenu(menuCopy);
   };
 
   const resetMenu = () => {
@@ -64,6 +77,7 @@ export default function OrderPage() {
     setNewProduct,
     productSelected,
     setProductSelected,
+    handleEdit,
   };
   //On a pas besoin d'écrire isModeAdmin: isModeAdmin quand les "noms" sont les mêmes
 
