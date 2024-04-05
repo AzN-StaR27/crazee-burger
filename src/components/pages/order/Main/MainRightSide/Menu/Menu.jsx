@@ -7,6 +7,7 @@ import OrderContext from "../../../../../../context/OrderContext.jsx";
 import EmptyMenuClient from "./EmptyMenuClient.jsx";
 import EmptyMenuAdmin from "./EmptyMenuAdmin.jsx";
 import { checkIfProductIsClicked } from "./helper.jsx";
+import { EMPTY_PRODUCT } from "../../../../../../enums/product.jsx";
 
 const IMAGE_BY_DEFAULT = "/images/coming-soon.png";
 
@@ -41,6 +42,10 @@ export default function Menu() {
   const handleOnDelete = (event, idProductToDelete) => {
     event.stopPropagation();
     handleDelete(idProductToDelete);
+
+    idProductToDelete === productSelected.id &&
+      setProductSelected(EMPTY_PRODUCT);
+    titleEditRef.current.focus();
   };
 
   //affichage

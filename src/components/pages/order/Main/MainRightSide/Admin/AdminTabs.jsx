@@ -5,7 +5,7 @@ import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 import { theme } from "../../../../../../theme";
 import { useContext } from "react";
 import OrderContext from "../../../../../../context/OrderContext.jsx";
-import { TabsConfig } from "./TabsConfig";
+import { getTabsConfig } from "./TabsConfig";
 export default function AdminTabs() {
   const {
     isCollapsed,
@@ -14,7 +14,7 @@ export default function AdminTabs() {
     setCurrentTabSelected,
   } = useContext(OrderContext);
 
-  const tabs = TabsConfig;
+  const tabs = getTabsConfig();
 
   const selectTab = (tabSelected) => {
     setIsCollapsed(false); //ouvre moi le panel ds ts les cas
