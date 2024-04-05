@@ -56,7 +56,7 @@ const CardStyled = styled.div`
   border-radius: ${theme.borderRadius.extraRound};
   height: 330px;
 
-  border: 1px solid red;
+  /* border: 1px solid red; */
   .card {
     background: ${theme.colors.white};
     box-sizing: border-box;

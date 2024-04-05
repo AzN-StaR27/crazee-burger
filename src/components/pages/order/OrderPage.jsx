@@ -3,7 +3,7 @@ import Navbar from "./Navbar/Navbar";
 import Main from "./Main/Main.jsx";
 import { theme } from "../../../theme";
 import OrderContext from "../../../context/OrderContext.jsx";
-import { useState } from "react";
+import React, { useRef, useState } from "react";
 import { fakeMenu } from "../../../fakeData/fakeMenu.js";
 import { EMPTY_PRODUCT } from "../../../enums/product.jsx";
 import { deepClone } from "../../../utils/array.jsx";
@@ -19,6 +19,7 @@ export default function OrderPage() {
   const [menu, setMenu] = useState(fakeMenu.MEDIUM);
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
   const [productSelected, setProductSelected] = useState(EMPTY_PRODUCT);
+  const titleEditRef = useRef();
 
   const handleAdd = (newProduct) => {
     const menuCopy = deepClone(menu);
@@ -79,6 +80,7 @@ export default function OrderPage() {
     productSelected,
     setProductSelected,
     handleEdit,
+    titleEditRef,
   };
   //On a pas besoin d'écrire isModeAdmin: isModeAdmin quand les "noms" sont les mêmes
 
