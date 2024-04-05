@@ -10,7 +10,7 @@ import { deepClone } from "../../../utils/array.jsx";
 export default function OrderPage() {
   //state
 
-  const [isModeAdmin, setIsModeAdmin] = useState(false);
+  const [isModeAdmin, setIsModeAdmin] = useState(true);
   const [isCollapsed, setIsCollapsed] = useState(false);
   //collapse pour onglet réduit
   const [isAddSelected, setIsAddSelected] = useState(false);
