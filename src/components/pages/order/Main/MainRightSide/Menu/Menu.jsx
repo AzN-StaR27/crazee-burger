@@ -6,13 +6,49 @@ import { formatPrice } from "../../../../../../utils/maths.jsx";
 import OrderContext from "../../../../../../context/OrderContext.jsx";
 import EmptyMenuClient from "./EmptyMenuClient.jsx";
 import EmptyMenuAdmin from "./EmptyMenuAdmin.jsx";
+import { checkIfProductIsClicked } from "./helper.jsx";
+import { EMPTY_PRODUCT } from "../../../../../../enums/product.jsx";
 
-const IMAGE_BY_DEFAULT = "../../../../../public/images/coming-soon.png";
+const IMAGE_BY_DEFAULT = "/images/coming-soon.png";
 
 export default function Menu() {
-  const { menu, isModeAdmin, handleDelete, resetMenu } =
-    useContext(OrderContext);
+  const {
+    menu,
+    isModeAdmin,
+    handleDelete,
+    resetMenu,
+    setProductSelected,
+    productSelected,
+    setCurrentTabSelected,
+    setIsCollapsed,
+    titleEditRef,
+  } = useContext(OrderContext);
 
+  //state
+
+  //comportements
+  const handleClick = async (idProductSelected) => {
+    if (!isModeAdmin) return;
+
+    await setIsCollapsed(false);
+    await setCurrentTabSelected("edit");
+    const productClickedOn = menu.find(
+      (product) => product.id === idProductSelected
+    );
+    await setProductSelected(productClickedOn);
+    titleEditRef.current.focus();
+  };
+
+  const handleOnDelete = (event, idProductToDelete) => {
+    event.stopPropagation();
+    handleDelete(idProductToDelete);
+
+    idProductToDelete === productSelected.id &&
+      setProductSelected(EMPTY_PRODUCT);
+    titleEditRef.current.focus();
+  };
+
+  //affichage
   if (menu.length === 0) {
     if (!isModeAdmin) return <EmptyMenuClient />;
     return <EmptyMenuAdmin onReset={resetMenu} />;
@@ -28,7 +64,11 @@ export default function Menu() {
             imageSource={imageSource ? imageSource : IMAGE_BY_DEFAULT}
             leftDescription={formatPrice(price)}
             hasDeleteButton={isModeAdmin}
-            onDelete={() => handleDelete(id)}
+            onDelete={(event) => handleOnDelete(event, id)}
+            onClick={() => handleClick(id)}
+            isHoverable={isModeAdmin}
+            // isSelected={id === productSelected.id}
+            isSelected={checkIfProductIsClicked(id, productSelected.id)}
           />
         );
       })}

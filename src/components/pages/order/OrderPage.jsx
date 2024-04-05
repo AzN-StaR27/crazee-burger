@@ -1,12 +1,12 @@
-import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import Navbar from "./Navbar/Navbar";
 import Main from "./Main/Main.jsx";
 import { theme } from "../../../theme";
 import OrderContext from "../../../context/OrderContext.jsx";
-import { useState } from "react";
+import React, { useRef, useState } from "react";
 import { fakeMenu } from "../../../fakeData/fakeMenu.js";
-import { EMPTY_PRODUCT } from "./Main/MainRightSide/Admin/AdminPanel/AddForm.jsx";
+import { EMPTY_PRODUCT } from "../../../enums/product.jsx";
+import { deepClone } from "../../../utils/array.jsx";
 export default function OrderPage() {
   //state
 
@@ -16,11 +16,13 @@ export default function OrderPage() {
   const [isAddSelected, setIsAddSelected] = useState(false);
   const [isEditSelected, setIsEditSelected] = useState(false);
   const [currentTabSelected, setCurrentTabSelected] = useState("add");
-  const [menu, setMenu] = useState(fakeMenu.SMALL);
+  const [menu, setMenu] = useState(fakeMenu.MEDIUM);
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
+  const [productSelected, setProductSelected] = useState(EMPTY_PRODUCT);
+  const titleEditRef = useRef();
 
   const handleAdd = (newProduct) => {
-    const menuCopy = [...menu];
+    const menuCopy = deepClone(menu);
 
     const menuUpdated = [newProduct, ...menuCopy];
 
@@ -38,6 +40,20 @@ export default function OrderPage() {
     console.log("menu updated : ", menuUpdated);
 
     setMenu(menuUpdated);
+  };
+
+  const handleEdit = (productBeingEdited) => {
+    //1. copie du state (deep clone)
+    const menuCopy = deepClone(menu);
+
+    //2. manip de la copie du state
+    const productIndex = menu.findIndex(
+      (menuProduct) => menuProduct.id === productBeingEdited.id
+    );
+    menuCopy[productIndex] = productBeingEdited;
+
+    //3. update du state
+    setMenu(menuCopy);
   };
 
   const resetMenu = () => {
@@ -61,6 +77,10 @@ export default function OrderPage() {
     resetMenu,
     newProduct,
     setNewProduct,
+    productSelected,
+    setProductSelected,
+    handleEdit,
+    titleEditRef,
   };
   //On a pas besoin d'écrire isModeAdmin: isModeAdmin quand les "noms" sont les mêmes
 
