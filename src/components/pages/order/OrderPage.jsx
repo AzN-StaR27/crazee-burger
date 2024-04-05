@@ -15,10 +15,10 @@ export default function OrderPage() {
   //collapse pour onglet réduit
   const [isAddSelected, setIsAddSelected] = useState(false);
   const [isEditSelected, setIsEditSelected] = useState(false);
-  const [currentTabSelected, setCurrentTabSelected] = useState("add");
+  const [currentTabSelected, setCurrentTabSelected] = useState("edit");
   const [menu, setMenu] = useState(fakeMenu.MEDIUM);
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
-  const [productSelected, setProductSelected] = useState(EMPTY_PRODUCT);
+  const [productSelected, setProductSelected] = useState(fakeMenu.SMALL[1]);
   const titleEditRef = useRef();
 
   const handleAdd = (newProduct) => {

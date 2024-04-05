@@ -1,45 +1,39 @@
-import { useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import OrderContext from "../../../../../../../context/OrderContext";
-
 import TextInput from "../../../../../../reusable-ui/TextInput";
-import Button from "../../../../../../reusable-ui/Button";
 import ImagePreview from "./ImagePreview";
-import SubmitMessage from "./SubmitMessage";
 import { getInputTextsConfig } from "./inputTextConfig";
 
-export default function Form({ product, onSubmit, onChange, isSubmitted }) {
-  // state
+const Form = React.forwardRef(
+  ({ product, onSubmit, onChange, QUELQUECHOSE }, ref) => {
+    // state (vide)
 
-  // comportements
+    // comportements (vide)
 
-  const inputTexts = getInputTextsConfig(product);
+    const inputTexts = getInputTextsConfig(product);
 
-  // affichage
-  return (
-    <FormStyled onSubmit={onSubmit}>
-      <ImagePreview imageSource={product.imageSource} title={product.title} />
-      <div className="input-fields">
-        {inputTexts.map((input) => (
-          <TextInput
-            {...input}
-            key={input.id}
-            onChange={onChange}
-            version="minimalist"
-          />
-        ))}
-      </div>
-      <div className="submit">
-        <Button
-          className="submit-button"
-          label={"Ajouter un nouveau produit au menu"}
-          version="success"
-        />
-        {isSubmitted && <SubmitMessage />}
-      </div>
-    </FormStyled>
-  );
-}
+    // affichage
+    return (
+      <FormStyled onSubmit={onSubmit}>
+        <ImagePreview imageSource={product.imageSource} title={product.title} />
+        <div className="input-fields">
+          {inputTexts.map((input) => (
+            <TextInput
+              {...input}
+              key={input.id}
+              onChange={onChange}
+              version="minimalist"
+              ref={ref && input.name === "title" ? ref : null}
+            />
+          ))}
+        </div>
+        <div className="submit">{QUELQUECHOSE}</div>
+      </FormStyled>
+    );
+  }
+);
+
+export default Form;
 
 const FormStyled = styled.form`
   /* border: 2px solid black; */
