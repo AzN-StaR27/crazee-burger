@@ -1,10 +1,13 @@
 import styled from "styled-components";
 import { theme } from "../../../../../theme";
 import Header from "./Header";
+import Total from "./Total";
+import { formatPrice } from "../../../../../utils/maths";
 export default function Basket() {
   return (
     <BasketStyled>
-      <Header>Header</Header>
+      <Total amountToPay={formatPrice(0)} />
+
       <div className="body">Body</div>
       <Header>Footer</Header>
     </BasketStyled>
