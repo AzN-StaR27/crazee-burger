@@ -1,11 +1,12 @@
 import styled from "styled-components";
 import { theme } from "../../../../theme/index.js";
 import MainRightSide from "./MainRightSide/MainRightSide.jsx";
+import Basket from "./Basket/Basket.jsx";
 
 export default function Main() {
   return (
     <MainStyled>
-      {/* <div className="basket">Basket</div> */}
+      <Basket />
       <MainRightSide />
     </MainStyled>
   );
@@ -21,8 +22,9 @@ const MainStyled = styled.div`
   box-shadow: ${theme.shadows.strong};
 
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 25% 1fr;
 
+  overflow: hidden;
   /* .menu-and-admin {
     position: relative;
     overflow-y: hidden;

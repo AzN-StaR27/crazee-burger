@@ -38,5 +38,6 @@ const ImagePreviewStyled = styled.div`
     line-height: 1.5;
     color: ${theme.colors.greySemiDark};
     border-radius: ${theme.borderRadius.round};
+    text-align: center;
   }
 `;
