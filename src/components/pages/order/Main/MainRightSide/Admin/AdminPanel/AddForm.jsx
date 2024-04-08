@@ -3,7 +3,7 @@ import OrderContext from "../../../../../../../context/OrderContext.jsx";
 import { EMPTY_PRODUCT } from "../../../../../../../enums/product.jsx";
 import Form from "./Form.jsx";
 import SubmitButton from "./SubmitButton.jsx";
-import useSuccessMessage from "../../../../../../../hooks/useDisplaySuccessMessage.jsx";
+import { useSuccessMessage } from "../../../../../../../hooks/useDisplaySuccessMessage.jsx";
 
 export default function AddForm() {
   //state
