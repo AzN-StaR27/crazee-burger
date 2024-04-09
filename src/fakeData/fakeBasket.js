@@ -1,46 +1,47 @@
-import { EMPTY_PRODUCT } from "../enums/product"
+import { EMPTY_PRODUCT } from "../enums/product";
 
-export const EMPTY = []
+export const EMPTY = [];
 
 export const SMALL = [
   {
     id: "1",
     title: "Burger Meal",
-    imageSource: "images/burger1.png",
+    imageSource: "/images/burger1.png",
     quantity: 1,
   },
-]
+];
 
 export const MEDIUM = [
   {
     id: "1",
-    imageSource: "images/burger1.png",
+    imageSource: "/images/burger1.png",
     title: "Burger Smoke BBQ",
     price: 5,
     quantity: 2,
   },
   {
     id: "2",
-    imageSource: "images/burger6.png",
+    imageSource: "/images/burger6.png",
     title: "Vegan Burger",
     price: 5,
     quantity: 1,
   },
   {
     id: "3",
-    imageSource: "https://www.ecomiam.com/images/Image/Frites-du-bistro-Code-Menlog.jpg",
+    imageSource:
+      "https://www.ecomiam.com/images/Image/Frites-du-bistro-Code-Menlog.jpg",
     title: "Burger House",
     price: 5,
     quantity: 4,
   },
   {
     id: "4",
-    imageSource: "images/drink1.png",
+    imageSource: "/images/drink1.png",
     title: "Cheese Burger",
     price: 5,
     quantity: 4,
   },
-]
+];
 
 export const LARGE = [
   {
@@ -133,7 +134,7 @@ export const LARGE = [
     isAvailable: true,
     isAdvertised: false,
   },
-]
+];
 
 export const LARGE_WEIRD = [
   {
@@ -230,7 +231,7 @@ export const LARGE_WEIRD = [
     isAvailable: true,
     isAdvertised: false,
   },
-]
+];
 
 export const fakeBasket = {
   EMPTY,
@@ -238,4 +239,4 @@ export const fakeBasket = {
   MEDIUM,
   LARGE,
   LARGE_WEIRD,
-}
+};

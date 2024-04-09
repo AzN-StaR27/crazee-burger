@@ -1,8 +1,8 @@
-import { useState } from "react"
-import {fakeBasket} from "../fakeData/fakeBasket"
+import { useState } from "react";
+import { fakeBasket } from "../fakeData/fakeBasket";
 
-export const useBasket = () => { 
-    const [basket, setBasket] = useState(fakeBasket.EMPTY)
+export const useBasket = () => {
+  const [basket, setBasket] = useState(fakeBasket.LARGE);
 
-    return {basket}
- }
+  return { basket };
+};
