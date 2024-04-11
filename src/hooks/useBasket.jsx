@@ -24,9 +24,16 @@ export const useBasket = () => {
 
       //3. update du state
       setBasket(basketUpdated);
-    }
+    } else {
+      //2e cas : le produit est déjà dans le basket
+      const indexOfBasketProductToIncrement = basket.findIndex(
+        (basketProduct) => basketProduct.id === productToAdd.id
+      );
 
-    //2e cas : le produit est déjà dans le basket
+      basketCopy[indexOfBasketProductToIncrement].quantity += 1;
+      //3. update du state
+      setBasket(basketCopy);
+    }
   };
 
   return { basket, handleAddToBasket };

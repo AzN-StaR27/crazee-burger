@@ -53,7 +53,6 @@ export default function Menu() {
     event.stopPropagation();
 
     const productToAdd = find(idProductToAdd, menu);
-    console.log(productToAdd);
     handleAddToBasket(productToAdd);
   };
 
