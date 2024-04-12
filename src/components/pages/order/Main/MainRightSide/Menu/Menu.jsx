@@ -53,8 +53,8 @@ export default function Menu() {
 
   const handleAddButton = (event, idProductToAdd) => {
     event.stopPropagation();
-
-    handleAddToBasket(idProductToAdd);
+    const productToAdd = findObjectById(idProductToAdd, menu);
+    handleAddToBasket(productToAdd);
   };
 
   //affichage

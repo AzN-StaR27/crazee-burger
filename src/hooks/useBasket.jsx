@@ -10,16 +10,16 @@ import {
 export const useBasket = () => {
   const [basket, setBasket] = useState(fakeBasket.EMPTY);
 
-  const handleAddToBasket = (idProductToAdd) => {
+  const handleAddToBasket = (productToAdd) => {
     const basketCopy = deepClone(basket);
-    const productAlreadyInBasket = findObjectById(idProductToAdd, basketCopy);
+    const productAlreadyInBasket = findObjectById(productToAdd.id, basketCopy);
 
     if (productAlreadyInBasket) {
-      incrementProductAlreadyInBasket(idProductToAdd, basketCopy);
+      incrementProductAlreadyInBasket(productToAdd.id, basketCopy);
       return;
     }
 
-    createNewBasketProduct(idProductToAdd, basketCopy);
+    createNewBasketProduct(productToAdd.id, basketCopy);
   };
 
   // const handleAddToBasket = (productToAdd) => {
@@ -38,7 +38,7 @@ export const useBasket = () => {
 
   const incrementProductAlreadyInBasket = (idProductToAdd, basketCopy) => {
     const indexOfBasketProductToIncrement = findIndexById(
-      idProductToAdd.id,
+      idProductToAdd,
       basketCopy
     );
     basketCopy[indexOfBasketProductToIncrement].quantity += 1;
