@@ -25,6 +25,7 @@ export default function Menu() {
     setIsCollapsed,
     titleEditRef,
     handleAddToBasket,
+    handleDeleteBasketProduct,
   } = useContext(OrderContext);
 
   //state
@@ -43,6 +44,7 @@ export default function Menu() {
   const handleOnDelete = (event, idProductToDelete) => {
     event.stopPropagation();
     handleDelete(idProductToDelete);
+    handleDeleteBasketProduct(idProductToDelete);
 
     idProductToDelete === productSelected.id &&
       setProductSelected(EMPTY_PRODUCT);
