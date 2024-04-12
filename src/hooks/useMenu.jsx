@@ -15,7 +15,7 @@ export const useMenu = () => {
   };
 
   const handleDelete = (idOfProductToDelete) => {
-    const menuCopy = [...menu];
+    const menuCopy = deepClone(menu);
 
     const menuUpdated = menuCopy.filter(
       (product) => product.id !== idOfProductToDelete

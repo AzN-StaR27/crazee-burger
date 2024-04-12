@@ -157,6 +157,11 @@ const BasketCardStyled = styled.div`
           color: ${theme.colors.dark};
         }
       }
+      &:active {
+        .icon {
+          color: ${theme.colors.white};
+        }
+      }
     }
   }
 `;
