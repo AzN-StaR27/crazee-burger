@@ -31,17 +31,17 @@ export default function Menu() {
   //state
 
   //comportements
-  const handleClick = async (idProductSelected) => {
+  const handleClick = async (idProductClicked) => {
     if (!isModeAdmin) return;
 
     await setIsCollapsed(false);
     await setCurrentTabSelected("edit");
-    const productClickedOn = findObjectById(idProductSelected, menu);
+    const productClickedOn = findObjectById(idProductClicked, menu);
     await setProductSelected(productClickedOn);
     titleEditRef.current.focus();
   };
 
-  const handleOnDelete = (event, idProductToDelete) => {
+  const handleCardDelete = (event, idProductToDelete) => {
     event.stopPropagation();
     handleDelete(idProductToDelete);
     handleDeleteBasketProduct(idProductToDelete);
@@ -54,8 +54,7 @@ export default function Menu() {
   const handleAddButton = (event, idProductToAdd) => {
     event.stopPropagation();
 
-    const productToAdd = findObjectById(idProductToAdd, menu);
-    handleAddToBasket(productToAdd);
+    handleAddToBasket(idProductToAdd);
   };
 
   //affichage
@@ -74,7 +73,7 @@ export default function Menu() {
             imageSource={imageSource ? imageSource : IMAGE_COMING_SOON}
             leftDescription={formatPrice(price)}
             hasDeleteButton={isModeAdmin}
-            onDelete={(event) => handleOnDelete(event, id)}
+            onDelete={(event) => handleCardDelete(event, id)}
             onClick={() => handleClick(id)}
             isHoverable={isModeAdmin}
             // isSelected={id === productSelected.id}
