@@ -6,6 +6,7 @@ import OrderContext from "../../../context/OrderContext.jsx";
 import React, { useRef, useState } from "react";
 import { EMPTY_PRODUCT } from "../../../enums/product.jsx";
 import { useMenu } from "../../../hooks/useMenu.jsx";
+import { useBasket } from "../../../hooks/useBasket.jsx";
 export default function OrderPage() {
   //state
 
@@ -19,6 +20,7 @@ export default function OrderPage() {
   const [productSelected, setProductSelected] = useState(EMPTY_PRODUCT);
   const titleEditRef = useRef();
   const { menu, handleAdd, handleDelete, handleEdit, resetMenu } = useMenu();
+  const { basket, handleAddToBasket, handleDeleteBasketProduct } = useBasket();
 
   const orderContextValue = {
     isModeAdmin,
@@ -41,6 +43,9 @@ export default function OrderPage() {
     setProductSelected,
     handleEdit,
     titleEditRef,
+    basket,
+    handleAddToBasket,
+    handleDeleteBasketProduct,
   };
   //On a pas besoin d'écrire isModeAdmin: isModeAdmin quand les "noms" sont les mêmes
 
