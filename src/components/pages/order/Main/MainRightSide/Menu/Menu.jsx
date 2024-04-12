@@ -11,7 +11,7 @@ import {
   EMPTY_PRODUCT,
   IMAGE_COMING_SOON,
 } from "../../../../../../enums/product.jsx";
-import { find } from "../../../../../../utils/array.jsx";
+import { findObjectById, isEmpty } from "../../../../../../utils/array.jsx";
 
 export default function Menu() {
   const {
@@ -36,7 +36,7 @@ export default function Menu() {
 
     await setIsCollapsed(false);
     await setCurrentTabSelected("edit");
-    const productClickedOn = find(idProductSelected, menu);
+    const productClickedOn = findObjectById(idProductSelected, menu);
     await setProductSelected(productClickedOn);
     titleEditRef.current.focus();
   };
@@ -54,12 +54,12 @@ export default function Menu() {
   const handleAddButton = (event, idProductToAdd) => {
     event.stopPropagation();
 
-    const productToAdd = find(idProductToAdd, menu);
+    const productToAdd = findObjectById(idProductToAdd, menu);
     handleAddToBasket(productToAdd);
   };
 
   //affichage
-  if (menu.length === 0) {
+  if (isEmpty(menu)) {
     if (!isModeAdmin) return <EmptyMenuClient />;
     return <EmptyMenuAdmin onReset={resetMenu} />;
   }

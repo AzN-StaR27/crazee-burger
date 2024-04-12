@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { fakeBasket } from "../fakeData/fakeBasket";
-import { deepClone, filter, find, findIndex } from "../utils/array";
+import { deepClone, removeObjectById, findObjectById, findIndex } from "../utils/array";
 
 export const useBasket = () => {
   const [basket, setBasket] = useState(fakeBasket.EMPTY);
@@ -9,7 +9,7 @@ export const useBasket = () => {
     const basketCopy = deepClone(basket);
 
     const isProductAlreadyInBasket =
-      find(productToAdd.id, basketCopy) !== undefined;
+      findObjectById(productToAdd.id, basketCopy) !== undefined;
     //1er cas : le produit n'est pas déjà dans le basket
     if (!isProductAlreadyInBasket) {
       createNewProductInBasket(productToAdd, basketCopy);
@@ -44,7 +44,7 @@ export const useBasket = () => {
     const basketCopy = deepClone(basket);
 
     //2. manip de la copie state
-    const basketUpdated = filter(idBasketProduct, basketCopy);
+    const basketUpdated = removeObjectById(idBasketProduct, basketCopy);
 
     //3. update du state
     setBasket(basketUpdated);
