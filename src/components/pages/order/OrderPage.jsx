@@ -7,6 +7,7 @@ import React, { useRef, useState } from "react";
 import { EMPTY_PRODUCT } from "../../../enums/product.jsx";
 import { useMenu } from "../../../hooks/useMenu.jsx";
 import { useBasket } from "../../../hooks/useBasket.jsx";
+import { findObjectById } from "../../../utils/array.jsx";
 export default function OrderPage() {
   //state
 
@@ -21,6 +22,14 @@ export default function OrderPage() {
   const titleEditRef = useRef();
   const { menu, handleAdd, handleDelete, handleEdit, resetMenu } = useMenu();
   const { basket, handleAddToBasket, handleDeleteBasketProduct } = useBasket();
+
+  const handleProductSelected = async (idProductClicked) => {
+    const productClickedOn = findObjectById(idProductClicked, menu);
+    await setIsCollapsed(false);
+    await setCurrentTabSelected("edit");
+    await setProductSelected(productClickedOn);
+    titleEditRef.current.focus();
+  };
 
   const orderContextValue = {
     isModeAdmin,
@@ -46,6 +55,7 @@ export default function OrderPage() {
     basket,
     handleAddToBasket,
     handleDeleteBasketProduct,
+    handleProductSelected,
   };
   //On a pas besoin d'écrire isModeAdmin: isModeAdmin quand les "noms" sont les mêmes
 

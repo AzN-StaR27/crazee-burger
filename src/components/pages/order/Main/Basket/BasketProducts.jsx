@@ -4,13 +4,21 @@ import BasketCard from "./BasketCard";
 import { IMAGE_COMING_SOON } from "../../../../../enums/product";
 import { findObjectById } from "../../../../../utils/array";
 import OrderContext from "../../../../../context/OrderContext.jsx";
-export default function BasketProducts() {
-  const { basket, isModeAdmin, handleDeleteBasketProduct, menu } =
-    useContext(OrderContext);
 
-  const handleOnDelete = (id) => {
+export default function BasketProducts() {
+  const {
+    basket,
+    isModeAdmin,
+    handleDeleteBasketProduct,
+    menu,
+    handleProductSelected,
+  } = useContext(OrderContext);
+
+  const handleOnDelete = (event, id) => {
+    event.stopPropagation();
     handleDeleteBasketProduct(id);
   };
+
   return (
     <BasketProductsStyled>
       {basket.map((basketProduct) => {
@@ -25,8 +33,13 @@ export default function BasketProducts() {
                   : IMAGE_COMING_SOON
               }
               quantity={basketProduct.quantity}
-              onDelete={() => handleOnDelete(basketProduct.id)}
+              onDelete={(event) => handleOnDelete(event, basketProduct.id)}
               isClickable={isModeAdmin}
+              onClick={
+                isModeAdmin
+                  ? () => handleProductSelected(basketProduct.id)
+                  : null
+              }
             />
           </div>
         );
