@@ -1,13 +1,13 @@
 import styled from "styled-components";
 import Total from "./Total";
-import { calculateSumToPay, formatPrice } from "../../../../../utils/maths";
+
 import Footer from "./Footer";
 import EmptyBasket from "./EmptyBasket";
 import { useContext } from "react";
 import OrderContext from "../../../../../context/OrderContext";
 import BasketProducts from "./BasketProducts";
 import { theme } from "../../../../../theme";
-import { findObjectById, isEmpty } from "../../../../../utils/array";
+import { isEmpty } from "../../../../../utils/array";
 
 export default function Basket() {
   const { basket } = useContext(OrderContext);
