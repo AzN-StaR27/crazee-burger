@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import styled from "styled-components";
 import { theme } from "../../../../../../theme/index.js";
 import Card from "../../../../../reusable-ui/Card.jsx";
@@ -11,7 +11,7 @@ import {
   EMPTY_PRODUCT,
   IMAGE_COMING_SOON,
 } from "../../../../../../enums/product.jsx";
-import { find } from "../../../../../../utils/array.jsx";
+import { findObjectById, isEmpty } from "../../../../../../utils/array.jsx";
 
 export default function Menu() {
   const {
@@ -21,45 +21,32 @@ export default function Menu() {
     resetMenu,
     setProductSelected,
     productSelected,
-    setCurrentTabSelected,
-    setIsCollapsed,
-    titleEditRef,
     handleAddToBasket,
     handleDeleteBasketProduct,
+    handleProductSelected,
   } = useContext(OrderContext);
 
   //state
 
   //comportements
-  const handleClick = async (idProductSelected) => {
-    if (!isModeAdmin) return;
 
-    await setIsCollapsed(false);
-    await setCurrentTabSelected("edit");
-    const productClickedOn = find(idProductSelected, menu);
-    await setProductSelected(productClickedOn);
-    titleEditRef.current.focus();
-  };
-
-  const handleOnDelete = (event, idProductToDelete) => {
+  const handleCardDelete = (event, idProductToDelete) => {
     event.stopPropagation();
     handleDelete(idProductToDelete);
     handleDeleteBasketProduct(idProductToDelete);
 
     idProductToDelete === productSelected.id &&
       setProductSelected(EMPTY_PRODUCT);
-    titleEditRef.current.focus();
   };
 
   const handleAddButton = (event, idProductToAdd) => {
     event.stopPropagation();
-
-    const productToAdd = find(idProductToAdd, menu);
+    const productToAdd = findObjectById(idProductToAdd, menu);
     handleAddToBasket(productToAdd);
   };
 
   //affichage
-  if (menu.length === 0) {
+  if (isEmpty(menu)) {
     if (!isModeAdmin) return <EmptyMenuClient />;
     return <EmptyMenuAdmin onReset={resetMenu} />;
   }
@@ -74,8 +61,8 @@ export default function Menu() {
             imageSource={imageSource ? imageSource : IMAGE_COMING_SOON}
             leftDescription={formatPrice(price)}
             hasDeleteButton={isModeAdmin}
-            onDelete={(event) => handleOnDelete(event, id)}
-            onClick={() => handleClick(id)}
+            onDelete={(event) => handleCardDelete(event, id)}
+            onClick={isModeAdmin ? () => handleProductSelected(id) : null}
             isHoverable={isModeAdmin}
             // isSelected={id === productSelected.id}
             isSelected={checkIfProductIsClicked(id, productSelected.id)}
