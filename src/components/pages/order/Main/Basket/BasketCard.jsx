@@ -13,12 +13,14 @@ export default function BasketCard({
   isClickable,
   onClick,
   onDelete,
+  isSelected,
 }) {
   return (
     <BasketCardStyled
       className={className}
       $isClickable={isClickable}
       onClick={onClick}
+      $isSelected={isSelected}
     >
       <div className="delete-button" onClick={onDelete}>
         <MdDeleteForever className="icon" />
@@ -42,7 +44,7 @@ export default function BasketCard({
 }
 
 const BasketCardStyled = styled.div`
-  cursor: ${({ isClickable }) => (isClickable ? "pointer" : "auto")};
+  cursor: ${({ $isClickable }) => ($isClickable ? "pointer" : "auto")};
   /* border: 1px solid red; */
   box-sizing: border-box;
   height: 86px;
@@ -168,5 +170,15 @@ const BasketCardStyled = styled.div`
         }
       }
     }
+  }
+  ${({ $isClickable, $isSelected }) =>
+    $isClickable && $isSelected && selectedStyled}
+`;
+
+const selectedStyled = css`
+  background: ${theme.colors.primary};
+  .price,
+  .quantity {
+    color: ${theme.colors.white};
   }
 `;
