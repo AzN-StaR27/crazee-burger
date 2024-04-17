@@ -40,8 +40,9 @@ export const useMenu = () => {
     setMenu(menuCopy);
   };
 
-  const resetMenu = () => {
+  const resetMenu = (username) => {
     setMenu(fakeMenu.SMALL);
+    syncBothMenus(username, fakeMenu.SMALL);
   };
 
   return { menu, setMenu, handleAdd, handleEdit, handleDelete, resetMenu };
