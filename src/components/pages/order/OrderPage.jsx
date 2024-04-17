@@ -14,8 +14,6 @@ export default function OrderPage() {
   const [isModeAdmin, setIsModeAdmin] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(false);
   //collapse pour onglet réduit
-  const [isAddSelected, setIsAddSelected] = useState(false);
-  const [isEditSelected, setIsEditSelected] = useState(false);
   const [currentTabSelected, setCurrentTabSelected] = useState("add");
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
   const [productSelected, setProductSelected] = useState(EMPTY_PRODUCT);
@@ -36,10 +34,6 @@ export default function OrderPage() {
     setIsModeAdmin,
     isCollapsed,
     setIsCollapsed,
-    isAddSelected,
-    setIsAddSelected,
-    isEditSelected,
-    setIsEditSelected,
     currentTabSelected,
     setCurrentTabSelected,
     menu,
