@@ -31,3 +31,13 @@ export const createUser = (userId) => {
   //setDoc = doc(CACHETTE, NOURRITURE)
   setDoc(docRef, newDoc);
 };
+
+export const authenticateUser = async (userId) => {
+  //1. récupère un existingUser
+  const existingUser = await getUser(userId);
+
+  //2. sinon tu crées un newUser
+  if (!existingUser) {
+    createUser(userId);
+  }
+};
