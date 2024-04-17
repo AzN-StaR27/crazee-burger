@@ -8,7 +8,8 @@ import { replaceFrenchCommaWithDot } from "../../../../../../../utils/maths.jsx"
 
 export default function AddForm() {
   //state
-  const { handleAdd, newProduct, setNewProduct } = useContext(OrderContext);
+  const { handleAdd, newProduct, setNewProduct, username } =
+    useContext(OrderContext);
   const { isSubmitted, displaySubmitMessage } = useSuccessMessage();
 
   //comportements
@@ -19,7 +20,7 @@ export default function AddForm() {
       id: crypto.randomUUID(),
       price: replaceFrenchCommaWithDot(newProduct.price),
     };
-    handleAdd(newProductToAdd);
+    handleAdd(newProductToAdd, username);
     setNewProduct(EMPTY_PRODUCT);
 
     displaySubmitMessage();
