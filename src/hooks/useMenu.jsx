@@ -4,7 +4,7 @@ import { deepClone } from "../utils/array";
 import { findIndexById } from "../utils/array.jsx";
 import { syncBothMenus } from "../api/product.jsx";
 export const useMenu = () => {
-  const [menu, setMenu] = useState(fakeMenu.MEDIUM);
+  const [menu, setMenu] = useState();
 
   //comportement
   const handleAdd = (newProduct, username) => {

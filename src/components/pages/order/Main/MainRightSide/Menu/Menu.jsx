@@ -12,6 +12,7 @@ import {
   IMAGE_COMING_SOON,
 } from "../../../../../../enums/product.jsx";
 import { findObjectById, isEmpty } from "../../../../../../utils/array.jsx";
+import Loader from "./Loader.jsx";
 
 export default function Menu() {
   const {
@@ -46,6 +47,9 @@ export default function Menu() {
   };
 
   //affichage
+
+  if (menu === undefined) return <Loader />;
+
   if (isEmpty(menu)) {
     if (!isModeAdmin) return <EmptyMenuClient />;
     return <EmptyMenuAdmin onReset={resetMenu} />;
