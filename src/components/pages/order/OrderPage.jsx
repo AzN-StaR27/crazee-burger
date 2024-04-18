@@ -9,8 +9,7 @@ import { useMenu } from "../../../hooks/useMenu.jsx";
 import { useBasket } from "../../../hooks/useBasket.jsx";
 import { findObjectById } from "../../../utils/array.jsx";
 import { useParams } from "react-router-dom";
-import { getMenu } from "../../../api/product.jsx";
-import { getLocalStorage } from "../../../utils/window.jsx";
+import { initialiseUserSession } from "./helpers/initializeUserSession.jsx";
 export default function OrderPage() {
   //state
 
@@ -35,23 +34,8 @@ export default function OrderPage() {
     titleEditRef.current.focus();
   };
 
-  const initializeMenu = async () => {
-    const menuReceived = await getMenu(username);
-    setMenu(menuReceived);
-  };
-
-  const initializeBasket = () => {
-    const basketReceived = getLocalStorage(username); // LocalStorage est synchrone, pas besoin de "await"
-    if (basketReceived) setBasket(basketReceived);
-  };
-
-  const initializeUserSession = async () => {
-    await initializeMenu();
-    initializeBasket(); //Le basket a besoin des données du menu, c'est pour ça qu'on met un await à initializeMenu
-  };
-
   useEffect(() => {
-    initializeUserSession();
+    initialiseUserSession(username, setMenu, setBasket);
   }, []);
 
   const orderContextValue = {
