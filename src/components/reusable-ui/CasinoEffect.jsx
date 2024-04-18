@@ -5,7 +5,7 @@ import styled from "styled-components";
 export default function CasinoEffect({ count, className }) {
   return (
     <TransitionGroup component={CasinoEffectStyled}>
-      <CSSTransition classNames={"count-animated"} timeout={5000} key={count}>
+      <CSSTransition classNames={"count-animated"} timeout={300} key={count}>
         <span className={className}>{count}</span>
       </CSSTransition>
     </TransitionGroup>
@@ -13,28 +13,31 @@ export default function CasinoEffect({ count, className }) {
 }
 
 const CasinoEffectStyled = styled.div`
-  border: 1px solid red;
+  position: relative;
+  overflow: hidden;
+  span {
+    display: inline-block;
+  }
 
   /* MOUNTING */
   .count-animated-enter {
-    background: green;
+    transform: translateY(100%);
   }
 
   .count-animated-enter-active {
-    background: blue;
-    transition: 2s;
-  }
-
-  .count-animated-enter-done {
-    background: pink;
+    transition: 300ms;
+    transform: translateY(0%);
   }
 
   /* UNMOUNTING */
   .count-animated-exit {
-    background: yellow;
+    transform: translateY(0%);
+    position: absolute;
+    bottom: 0;
+    left: 0;
   }
   .count-animated-exit-active {
-    background: red;
-    transition: 2s;
+    transition: 300ms;
+    transform: translateY(-100%);
   }
 `;
