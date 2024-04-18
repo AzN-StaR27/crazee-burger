@@ -9,7 +9,7 @@ import {
 import { setLocalStorage } from "../utils/window";
 
 export const useBasket = () => {
-  const [basket, setBasket] = useState(fakeBasket.EMPTY);
+  const [basket, setBasket] = useState([]);
 
   const handleAddToBasket = (productToAdd, username) => {
     const basketCopy = deepClone(basket);
@@ -65,5 +65,5 @@ export const useBasket = () => {
     const basketUpdated = removeObjectById(idBasketProduct, basket);
     setBasket(basketUpdated);
   };
-  return { basket, handleAddToBasket, handleDeleteBasketProduct };
+  return { basket, setBasket, handleAddToBasket, handleDeleteBasketProduct };
 };
