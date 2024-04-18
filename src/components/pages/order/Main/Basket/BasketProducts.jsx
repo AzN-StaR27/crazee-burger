@@ -23,45 +23,43 @@ export default function BasketProducts() {
   };
 
   return (
-    <BasketProductsStyled>
-      <TransitionGroup>
-        {basket.map((basketProduct) => {
-          const menuProduct = findObjectById(basketProduct.id, menu);
-          return (
-            <CSSTransition
-              appear={true}
-              classNames={"abricot"}
-              key={basketProduct.id}
-              timeout={500}
-            >
-              <div className="basket-card">
-                <BasketCard
-                  {...menuProduct}
-                  imageSource={
-                    menuProduct.imageSource
-                      ? menuProduct.imageSource
-                      : IMAGE_COMING_SOON
-                  }
-                  quantity={basketProduct.quantity}
-                  onDelete={(event) => handleOnDelete(event, basketProduct.id)}
-                  isClickable={isModeAdmin}
-                  onClick={
-                    isModeAdmin
-                      ? () => handleProductSelected(basketProduct.id)
-                      : null
-                  }
-                  isSelected={checkIfProductIsClicked(
-                    basketProduct.id,
-                    productSelected.id
-                  )}
-                  className="pomme"
-                />
-              </div>
-            </CSSTransition>
-          );
-        })}
-      </TransitionGroup>
-    </BasketProductsStyled>
+    <TransitionGroup component={BasketProductsStyled}>
+      {basket.map((basketProduct) => {
+        const menuProduct = findObjectById(basketProduct.id, menu);
+        return (
+          <CSSTransition
+            appear={true}
+            classNames={"abricot"}
+            key={basketProduct.id}
+            timeout={500}
+          >
+            <div className="basket-card">
+              <BasketCard
+                {...menuProduct}
+                imageSource={
+                  menuProduct.imageSource
+                    ? menuProduct.imageSource
+                    : IMAGE_COMING_SOON
+                }
+                quantity={basketProduct.quantity}
+                onDelete={(event) => handleOnDelete(event, basketProduct.id)}
+                isClickable={isModeAdmin}
+                onClick={
+                  isModeAdmin
+                    ? () => handleProductSelected(basketProduct.id)
+                    : null
+                }
+                isSelected={checkIfProductIsClicked(
+                  basketProduct.id,
+                  productSelected.id
+                )}
+                className="pomme"
+              />
+            </div>
+          </CSSTransition>
+        );
+      })}
+    </TransitionGroup>
   );
 }
 
