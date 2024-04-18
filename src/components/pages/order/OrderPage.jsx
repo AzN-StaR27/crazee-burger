@@ -45,12 +45,13 @@ export default function OrderPage() {
     if (basketReceived) setBasket(basketReceived);
   };
 
-  useEffect(() => {
-    initializeMenu();
-  }, []);
+  const initializeUserSession = async () => {
+    await initializeMenu();
+    initializeBasket(); //Le basket a besoin des données du menu, c'est pour ça qu'on met un await à initializeMenu
+  };
 
   useEffect(() => {
-    initializeBasket();
+    initializeUserSession();
   }, []);
 
   const orderContextValue = {
