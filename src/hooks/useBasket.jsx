@@ -6,20 +6,21 @@ import {
   findObjectById,
   findIndexById,
 } from "../utils/array";
+import { setLocalStorage } from "../utils/window";
 
 export const useBasket = () => {
-  const [basket, setBasket] = useState(fakeBasket.EMPTY);
+  const [basket, setBasket] = useState([]);
 
-  const handleAddToBasket = (productToAdd) => {
+  const handleAddToBasket = (productToAdd, username) => {
     const basketCopy = deepClone(basket);
     const productAlreadyInBasket = findObjectById(productToAdd.id, basketCopy);
 
     if (productAlreadyInBasket) {
-      incrementProductAlreadyInBasket(productToAdd.id, basketCopy);
+      incrementProductAlreadyInBasket(productToAdd.id, basketCopy, username);
       return;
     }
 
-    createNewBasketProduct(productToAdd.id, basketCopy);
+    createNewBasketProduct(productToAdd.id, basketCopy, username);
   };
 
   // const handleAddToBasket = (productToAdd) => {
@@ -36,15 +37,20 @@ export const useBasket = () => {
   //   incrementProductAlreadyInBasket(productToAdd, basketCopy);
   // };
 
-  const incrementProductAlreadyInBasket = (idProductToAdd, basketCopy) => {
+  const incrementProductAlreadyInBasket = (
+    idProductToAdd,
+    basketCopy,
+    username
+  ) => {
     const indexOfBasketProductToIncrement = findIndexById(
       idProductToAdd,
       basketCopy
     );
     basketCopy[indexOfBasketProductToIncrement].quantity += 1;
     setBasket(basketCopy);
+    setLocalStorage(username, basketCopy);
   };
-  const createNewBasketProduct = (idProductToAdd, basketCopy) => {
+  const createNewBasketProduct = (idProductToAdd, basketCopy, username) => {
     //we do not re-create a whole product, we only add the extra info a basket
     const newBasketProduct = {
       id: idProductToAdd,
@@ -52,11 +58,13 @@ export const useBasket = () => {
     };
     const newBasket = [newBasketProduct, ...basketCopy];
     setBasket(newBasket);
+    setLocalStorage(username, newBasket);
   };
 
-  const handleDeleteBasketProduct = (idBasketProduct) => {
+  const handleDeleteBasketProduct = (idBasketProduct, username) => {
     const basketUpdated = removeObjectById(idBasketProduct, basket);
     setBasket(basketUpdated);
+    setLocalStorage(username, basketUpdated);
   };
-  return { basket, handleAddToBasket, handleDeleteBasketProduct };
+  return { basket, setBasket, handleAddToBasket, handleDeleteBasketProduct };
 };

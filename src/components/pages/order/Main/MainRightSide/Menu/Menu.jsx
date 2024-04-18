@@ -12,9 +12,11 @@ import {
   IMAGE_COMING_SOON,
 } from "../../../../../../enums/product.jsx";
 import { findObjectById, isEmpty } from "../../../../../../utils/array.jsx";
+import Loader from "./Loader.jsx";
 
 export default function Menu() {
   const {
+    username,
     menu,
     isModeAdmin,
     handleDelete,
@@ -32,8 +34,8 @@ export default function Menu() {
 
   const handleCardDelete = (event, idProductToDelete) => {
     event.stopPropagation();
-    handleDelete(idProductToDelete);
-    handleDeleteBasketProduct(idProductToDelete);
+    handleDelete(idProductToDelete, username);
+    handleDeleteBasketProduct(idProductToDelete, username);
 
     idProductToDelete === productSelected.id &&
       setProductSelected(EMPTY_PRODUCT);
@@ -42,13 +44,16 @@ export default function Menu() {
   const handleAddButton = (event, idProductToAdd) => {
     event.stopPropagation();
     const productToAdd = findObjectById(idProductToAdd, menu);
-    handleAddToBasket(productToAdd);
+    handleAddToBasket(productToAdd, username);
   };
 
   //affichage
+
+  if (menu === undefined) return <Loader />;
+
   if (isEmpty(menu)) {
     if (!isModeAdmin) return <EmptyMenuClient />;
-    return <EmptyMenuAdmin onReset={resetMenu} />;
+    return <EmptyMenuAdmin onReset={() => resetMenu(username)} />;
   }
 
   return (

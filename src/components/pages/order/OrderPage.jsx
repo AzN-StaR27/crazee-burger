@@ -3,25 +3,28 @@ import Navbar from "./Navbar/Navbar";
 import Main from "./Main/Main.jsx";
 import { theme } from "../../../theme";
 import OrderContext from "../../../context/OrderContext.jsx";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { EMPTY_PRODUCT } from "../../../enums/product.jsx";
 import { useMenu } from "../../../hooks/useMenu.jsx";
 import { useBasket } from "../../../hooks/useBasket.jsx";
 import { findObjectById } from "../../../utils/array.jsx";
+import { useParams } from "react-router-dom";
+import { initialiseUserSession } from "./helpers/initializeUserSession.jsx";
 export default function OrderPage() {
   //state
 
   const [isModeAdmin, setIsModeAdmin] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(false);
   //collapse pour onglet réduit
-  const [isAddSelected, setIsAddSelected] = useState(false);
-  const [isEditSelected, setIsEditSelected] = useState(false);
   const [currentTabSelected, setCurrentTabSelected] = useState("add");
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
   const [productSelected, setProductSelected] = useState(EMPTY_PRODUCT);
   const titleEditRef = useRef();
-  const { menu, handleAdd, handleDelete, handleEdit, resetMenu } = useMenu();
-  const { basket, handleAddToBasket, handleDeleteBasketProduct } = useBasket();
+  const { menu, setMenu, handleAdd, handleDelete, handleEdit, resetMenu } =
+    useMenu();
+  const { basket, setBasket, handleAddToBasket, handleDeleteBasketProduct } =
+    useBasket();
+  const { username } = useParams();
 
   const handleProductSelected = async (idProductClicked) => {
     const productClickedOn = findObjectById(idProductClicked, menu);
@@ -31,15 +34,16 @@ export default function OrderPage() {
     titleEditRef.current.focus();
   };
 
+  useEffect(() => {
+    initialiseUserSession(username, setMenu, setBasket);
+  }, []);
+
   const orderContextValue = {
+    username,
     isModeAdmin,
     setIsModeAdmin,
     isCollapsed,
     setIsCollapsed,
-    isAddSelected,
-    setIsAddSelected,
-    isEditSelected,
-    setIsEditSelected,
     currentTabSelected,
     setCurrentTabSelected,
     menu,
