@@ -14,12 +14,14 @@ export default function Basket() {
 
   const isBasketEmpty = isEmpty(basket);
 
-  if (menu === undefined) return <span> Chargement ... </span>;
-
   return (
     <BasketStyled>
       <Total />
-      {isBasketEmpty ? <EmptyBasket /> : <BasketProducts />}
+      {isBasketEmpty ? (
+        <EmptyBasket isLoading={menu === undefined} />
+      ) : (
+        <BasketProducts />
+      )}
       <Footer />
     </BasketStyled>
   );
