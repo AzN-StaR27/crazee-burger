@@ -91,7 +91,7 @@ const CardStyled = styled.div`
       border: none;
       background: none;
 
-      animation: ${fadeInFromRight} ${theme.animations.speed.slow} ease-out;
+      animation: ${fadeInFromRight} ${theme.animations.speed.quick} ease-out;
 
       .icon {
         height: 100%;
