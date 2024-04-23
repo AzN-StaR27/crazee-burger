@@ -1,4 +1,4 @@
-import { css } from "styled-components";
+import { css, keyframes } from "styled-components";
 import { theme } from ".";
 
 export const adminAnimation = css`
@@ -51,4 +51,17 @@ export const basketAnimation = css`
       transition: ${theme.animations.speed.quick};
     }
   }
+`;
+
+export const fadeInFromRight = keyframes`
+  
+  0%{
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100%{
+    opacity: 1;
+    transform: translateX(0);
+  }
+
 `;
