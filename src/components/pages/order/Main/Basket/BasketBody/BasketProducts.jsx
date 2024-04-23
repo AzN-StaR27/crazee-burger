@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import BasketCard from "./BasketCard";
-import { IMAGE_COMING_SOON } from "../../../../../enums/product";
-import { findObjectById } from "../../../../../utils/array";
-import OrderContext from "../../../../../context/OrderContext.jsx";
-import { checkIfProductIsClicked } from "../MainRightSide/Menu/helper.jsx";
+import BasketCard from "../BasketCard.jsx";
+import { IMAGE_COMING_SOON } from "../../../../../../enums/product.jsx";
+import { findObjectById } from "../../../../../../utils/array.jsx";
+import OrderContext from "../../../../../../context/OrderContext.jsx";
+import { checkIfProductIsClicked } from "../../MainRightSide/Menu/helper.jsx";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
-import { basketAnimation } from "../../../../../theme/animations.jsx";
+import { basketAnimation } from "../../../../../../theme/animations.jsx";
 export default function BasketProducts() {
   const {
     username,
