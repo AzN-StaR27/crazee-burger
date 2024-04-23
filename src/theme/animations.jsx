@@ -1,6 +1,33 @@
 import { css, keyframes } from "styled-components";
 import { theme } from ".";
 
+export const fadeInFromRight = keyframes`
+  
+  0%{
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100%{
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+`;
+
+export const fadeInFromBottom = keyframes`
+  
+  0%{
+    opacity: 0;
+    transform: translateY(100%);
+  }
+
+  100%{
+    opacity: 1;
+      transform: translateY(0);
+  }
+  
+`;
+
 export const adminAnimation = css`
   .admin-appear {
     opacity: 0.1;
@@ -51,19 +78,6 @@ export const basketAnimation = css`
       transition: ${theme.animations.speed.quick};
     }
   }
-`;
-
-export const fadeInFromRight = keyframes`
-  
-  0%{
-    opacity: 0;
-    transform: translateX(100%);
-  }
-  100%{
-    opacity: 1;
-    transform: translateX(0);
-  }
-
 `;
 
 export const menuAnimation = css`
