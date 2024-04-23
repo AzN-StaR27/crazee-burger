@@ -29,11 +29,11 @@ export default function BasketProducts() {
         return (
           <CSSTransition
             appear={true}
-            classNames={"abricot"}
+            classNames={"animation-basket"}
             key={basketProduct.id}
             timeout={500}
           >
-            <div className="basket-card">
+            <div className="card-container">
               <BasketCard
                 {...menuProduct}
                 imageSource={
@@ -53,7 +53,7 @@ export default function BasketProducts() {
                   basketProduct.id,
                   productSelected.id
                 )}
-                className="pomme"
+                className="card"
               />
             </div>
           </CSSTransition>
@@ -69,54 +69,54 @@ const BasketProductsStyled = styled.div`
   display: flex;
   flex-direction: column;
   overflow-y: auto;
-  .abricot-appear {
-    .pomme {
+  .animation-basket-appear {
+    .card {
       transform: translateX(100px);
       opacity: 0%;
     }
   }
 
-  .abricot-appear-active {
-    .pomme {
+  .animation-basket-appear-active {
+    .card {
       transition: 0.5s;
       transform: translateX(0);
       opacity: 100%;
     }
   }
 
-  .abricot-enter {
-    .pomme {
+  .animation-basket-enter {
+    .card {
       transform: translateX(100px);
       opacity: 0%;
     }
   }
 
-  .abricot-enter-active {
-    .pomme {
+  .animation-basket-enter-active {
+    .card {
       transition: 0.5s;
       transform: translateX(0);
       opacity: 100%;
     }
   }
 
-  .abricot-exit {
-    .pomme {
+  .animation-basket-exit {
+    .card {
       transform: translateX(0);
       opacity: 100%;
     }
   }
 
-  .abricot-exit-active {
-    .pomme {
+  .animation-basket-exit-active {
+    .card {
       transform: translateX(-100px);
       opacity: 0%;
       transition: 0.5s;
     }
   }
-  .basket-card {
+  .card-container {
     margin: 10px 16px;
   }
-  &.basket-card {
+  &.card-container {
     /* border: 1px solid blue; */
     height: 86px;
     box-sizing: border-box;
