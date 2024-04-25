@@ -10,6 +10,7 @@ import { checkIfProductIsClicked } from "./helper.jsx";
 import {
   EMPTY_PRODUCT,
   IMAGE_COMING_SOON,
+  IMAGE_NO_STOCK,
 } from "../../../../../../enums/product.jsx";
 import { findObjectById, isEmpty } from "../../../../../../utils/array.jsx";
 import Loader from "./Loader.jsx";
@@ -74,6 +75,8 @@ export default function Menu() {
               // isSelected={id === productSelected.id}
               isSelected={checkIfProductIsClicked(id, productSelected.id)}
               onAdd={(event) => handleAddButton(event, id)}
+              overlapImageSource={IMAGE_NO_STOCK}
+              isOverlapImageVisible={true}
             />
           </CSSTransition>
         );
