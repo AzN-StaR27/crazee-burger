@@ -7,9 +7,15 @@ export default function Button({
   Icon,
   version = "normal",
   onClick,
+  disabled,
 }) {
   return (
-    <ButtonStyled className={className} version={version} onClick={onClick}>
+    <ButtonStyled
+      className={className}
+      version={version}
+      onClick={onClick}
+      disabled={disabled}
+    >
       <span>{label}</span>
       <div className="icon">{Icon && Icon}</div>
     </ButtonStyled>
@@ -17,13 +23,13 @@ export default function Button({
 }
 
 const ButtonStyled = styled.button`
-  /* ${(props) => props.version === "normal" && extraStylePrimary};
+  /* ${(props) => props.version === "normal" && extraStyleNormal};
   ${(props) => props.version === "success" && extraStyleSuccess}; */
 
   ${({ version }) => extraStyle[version]};
 `;
 
-const extraStylePrimary = css`
+const extraStyleNormal = css`
   width: 100%;
   /* border: 1px solid red; */
   display: inline-flex;
@@ -41,6 +47,7 @@ const extraStylePrimary = css`
   color: white;
   background-color: #ff9f1b;
   border: 1px solid #ff9f1b;
+  cursor: pointer;
 
   &:hover:not(:disabled) {
     background-color: ${theme.colors.white};
@@ -54,7 +61,7 @@ const extraStylePrimary = css`
     background-color: #ff9f1b;
   }
 
-  &.is-disabled {
+  &:disabled {
     opacity: 50%;
     cursor: not-allowed;
     z-index: 2;
@@ -104,6 +111,6 @@ const extraStyleSuccess = css`
 `;
 
 const extraStyle = {
-  normal: extraStylePrimary,
+  normal: extraStyleNormal,
   success: extraStyleSuccess,
 };

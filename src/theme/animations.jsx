@@ -26,8 +26,8 @@ export const fadeInFromRight = keyframes`
 export const fadeInFromTop = keyframes`
   
   0%{
-    /* position: absolute;
-    z-index: 1; */
+    position: absolute;
+    z-index: 1;
     opacity: 0;
     transform: translateY(-40%);
   }
