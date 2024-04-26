@@ -34,7 +34,7 @@ export default function BasketCard({
           <div className="title">
             <span>{title}</span>
           </div>
-          <span className="price">{formatPrice(price)}</span>
+          <span className="price">{price}</span>
         </div>
         <div className="quantity">
           <CasinoEffect count={`x ${quantity}`} />
@@ -111,6 +111,8 @@ const BasketCardStyled = styled.div`
         font-size: ${theme.fonts.size.SM};
         font-weight: ${theme.fonts.weights.medium};
         font-family: ${theme.fonts.family.openSans};
+        white-space: nowrap;
+
         /* color: ${theme.colors.white}; */
       }
     }
@@ -122,8 +124,7 @@ const BasketCardStyled = styled.div`
       font-weight: ${theme.fonts.weights.medium};
       display: flex;
       align-items: center;
-      justify-content: flex-end;
-      margin-right: 20px;
+      justify-content: center;
       font-size: ${theme.fonts.size.SM};
     }
   }
