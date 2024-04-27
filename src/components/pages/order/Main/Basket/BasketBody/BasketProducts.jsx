@@ -12,6 +12,7 @@ import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { basketAnimation } from "../../../../../../theme/animations.jsx";
 import { formatPrice } from "../../../../../../utils/maths.jsx";
 import { convertStringToBoolean } from "../../../../../../utils/string.jsx";
+import Sticker from "../../../../../reusable-ui/Sticker.jsx";
 export default function BasketProducts() {
   const {
     username,
@@ -40,6 +41,9 @@ export default function BasketProducts() {
             timeout={500}
           >
             <div className="card-container">
+              {convertStringToBoolean(menuProduct.isPublicised) && (
+                <Sticker className="badge-new" />
+              )}
               <BasketCard
                 {...menuProduct}
                 imageSource={
@@ -91,6 +95,16 @@ const BasketProductsStyled = styled.div`
 
   .card-container {
     margin: 10px 16px;
+    position: relative;
+
+    .badge-new {
+      position: absolute;
+      z-index: 1;
+      bottom: 10%;
+      left: 21%;
+      transform: translateY(-21%);
+      transform: translateX(-5%);
+    }
   }
   &.card-container {
     /* border: 1px solid blue; */
