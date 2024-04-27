@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { theme } from "../../../../../../../theme";
 import { useContext } from "react";
 import OrderContext from "../../../../../../../context/OrderContext.jsx";
-import { getTabSelected, getTabsConfig } from "../tabsConfig.jsx";
+import { getTabSelected, getTabsConfig } from "../TabsConfig.jsx";
 import { EMPTY_PRODUCT } from "../../../../../../../enums/product.jsx";
 
 export default function AdminPanel() {
