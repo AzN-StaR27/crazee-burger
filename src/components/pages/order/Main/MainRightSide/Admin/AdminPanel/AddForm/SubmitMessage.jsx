@@ -10,7 +10,7 @@ export default function SubmitMessage() {
 }
 
 import styled from "styled-components";
-import { theme } from "../../../../../../../theme";
+import { theme } from "../../../../../../../../theme";
 
 const SubmitMessageStyled = styled.div`
   display: flex;

@@ -1,6 +1,6 @@
 import React from "react";
-import Button from "../../../../../../reusable-ui/Button";
-import SubmitMessage from "./SubmitMessage";
+import Button from "../../../../../../../reusable-ui/Button";
+import SubmitMessage from "./SubmitMessage.jsx";
 
 export default function SubmitButton({ isSubmitted }) {
   return (

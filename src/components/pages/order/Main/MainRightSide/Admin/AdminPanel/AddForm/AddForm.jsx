@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
-import OrderContext from "../../../../../../../context/OrderContext.jsx";
-import { EMPTY_PRODUCT } from "../../../../../../../enums/product.jsx";
-import Form from "./Form.jsx";
+import OrderContext from "../../../../../../../../context/OrderContext.jsx";
+import { EMPTY_PRODUCT } from "../../../../../../../../enums/product.jsx";
+import Form from "../Form/Form.jsx";
 import SubmitButton from "./SubmitButton.jsx";
-import { useSuccessMessage } from "../../../../../../../hooks/useSuccessMessage.jsx";
-import { replaceFrenchCommaWithDot } from "../../../../../../../utils/maths.jsx";
+import { useSuccessMessage } from "../../../../../../../../hooks/useSuccessMessage.jsx";
+import { replaceFrenchCommaWithDot } from "../../../../../../../../utils/maths.jsx";
 
 export default function AddForm() {
   //state
