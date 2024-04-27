@@ -3,6 +3,7 @@ import BasketHeader from "./BasketHeader/BasketHeader";
 import BasketBody from "./BasketBody/BasketBody";
 import BasketFooter from "./BasketFooter";
 import { theme } from "../../../../../theme";
+import React from "react";
 
 export default function Basket() {
   return (

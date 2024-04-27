@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import { theme } from "../../theme";
+import React from "react";
 
 export default function Button({
   className,
@@ -26,7 +27,7 @@ const ButtonStyled = styled.button`
   /* ${(props) => props.version === "normal" && extraStyleNormal};
   ${(props) => props.version === "success" && extraStyleSuccess}; */
 
-  ${({ version }) => extraStyle[version]};
+  ${({ version }) => extraStyle[version]}
 `;
 
 const extraStyleNormal = css`

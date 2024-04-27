@@ -7,6 +7,7 @@ import {
 } from "../../../../../../../../enums/select";
 import { FiPackage } from "react-icons/fi";
 import { GoMegaphone } from "react-icons/go";
+import React from "react";
 
 export const getInputTextsConfig = (newProduct) => [
   {

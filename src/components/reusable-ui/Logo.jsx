@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { theme } from "../../theme";
+import React from "react";
 
 export default function Logo({ className, onClick }) {
   return (

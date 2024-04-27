@@ -9,6 +9,9 @@ export default function SubmitButton({ isSubmitted }) {
         className="submit-button"
         label={"Ajouter un nouveau produit au menu"}
         version="success"
+        Icon={undefined}
+        onClick={undefined}
+        disabled={undefined}
       />
       {isSubmitted && <SubmitMessage />}
     </>
