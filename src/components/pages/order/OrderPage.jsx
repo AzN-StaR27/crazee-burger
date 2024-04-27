@@ -13,7 +13,7 @@ import { initialiseUserSession } from "./helpers/initializeUserSession.jsx";
 export default function OrderPage() {
   //state
 
-  const [isModeAdmin, setIsModeAdmin] = useState(true);
+  const [isModeAdmin, setIsModeAdmin] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(false);
   //collapse pour onglet réduit
   const [currentTabSelected, setCurrentTabSelected] = useState("add");
