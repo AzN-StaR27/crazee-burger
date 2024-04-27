@@ -3,6 +3,7 @@ import Button from "./Button";
 import { theme } from "../../theme";
 import { TiDelete } from "react-icons/ti";
 import { fadeInFromRight, fadeInFromTop } from "../../theme/animations";
+import React from "react";
 
 export default function Card({
   imageSource,

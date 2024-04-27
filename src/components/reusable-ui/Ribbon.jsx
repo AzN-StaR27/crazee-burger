@@ -1,5 +1,6 @@
-import styled from "styled-components"
-import { theme } from "../../theme"
+import styled from "styled-components";
+import { theme } from "../../theme";
+import React from "react";
 
 export default function Ribbon({ label = "new", className }) {
   return (
@@ -8,7 +9,7 @@ export default function Ribbon({ label = "new", className }) {
         <span>{label}</span>
       </div>
     </RibbonStyled>
-  )
+  );
 }
 
 const RibbonStyled = styled.div`
@@ -152,4 +153,4 @@ const RibbonStyled = styled.div`
     bottom: 30px;
     transform: rotate(-225deg);
   }
-`
+`;
