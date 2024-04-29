@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { theme } from "../../../theme";
 import { IoChevronForward } from "react-icons/io5";
@@ -36,6 +36,7 @@ export default function LoginForm() {
       <Welcome />
       <div>
         <TextInput
+          // @ts-ignore
           value={username}
           onChange={handleChange}
           placeholder={"Entrez votre prénom"}
@@ -45,7 +46,13 @@ export default function LoginForm() {
           version="normal"
         />
 
-        <Button label={"Accédez à votre espace"} Icon={<IoChevronForward />} />
+        <Button
+          label={"Accédez à votre espace"}
+          Icon={<IoChevronForward />}
+          className={undefined}
+          onClick={undefined}
+          disabled={undefined}
+        />
       </div>
     </LoginFormStyled>
   );

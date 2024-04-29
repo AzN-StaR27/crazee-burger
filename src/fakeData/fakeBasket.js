@@ -51,7 +51,7 @@ export const LARGE = [
     price: 3.1678,
     quantity: 13,
     isAvailable: true,
-    isAdvertised: false,
+    isPublicised: false,
   },
   {
     id: "2",
@@ -60,7 +60,7 @@ export const LARGE = [
     price: 3.568,
     quantity: 1,
     isAvailable: true,
-    isAdvertised: false,
+    isPublicised: false,
   },
   {
     id: "3",
@@ -69,7 +69,7 @@ export const LARGE = [
     price: 5.367,
     quantity: 5,
     isAvailable: true,
-    isAdvertised: false,
+    isPublicised: false,
   },
   {
     id: "4",
@@ -78,7 +78,7 @@ export const LARGE = [
     price: 5.4985,
     quantity: 1,
     isAvailable: true,
-    isAdvertised: false,
+    isPublicised: false,
   },
   {
     id: "5",
@@ -87,7 +87,7 @@ export const LARGE = [
     price: 3.487,
     quantity: 1,
     isAvailable: true,
-    isAdvertised: false,
+    isPublicised: false,
   },
   {
     id: "6",
@@ -96,7 +96,7 @@ export const LARGE = [
     price: 3.356,
     quantity: 1,
     isAvailable: true,
-    isAdvertised: false,
+    isPublicised: false,
   },
   {
     id: "7",
@@ -105,7 +105,7 @@ export const LARGE = [
     price: 5.598,
     quantity: 1,
     isAvailable: true,
-    isAdvertised: false,
+    isPublicised: false,
   },
   {
     id: "8",
@@ -114,7 +114,7 @@ export const LARGE = [
     price: 2.567,
     quantity: 1,
     isAvailable: true,
-    isAdvertised: false,
+    isPublicised: false,
   },
   {
     id: "9",
@@ -123,7 +123,7 @@ export const LARGE = [
     price: 3.7,
     quantity: 1,
     isAvailable: true,
-    isAdvertised: false,
+    isPublicised: false,
   },
   {
     id: "10",
@@ -132,7 +132,7 @@ export const LARGE = [
     price: 4.678,
     quantity: 1,
     isAvailable: true,
-    isAdvertised: false,
+    isPublicised: false,
   },
 ];
 
@@ -148,7 +148,7 @@ export const LARGE_WEIRD = [
     price: 3.1678,
     quantity: 13,
     isAvailable: true,
-    isAdvertised: false,
+    isPublicised: false,
   },
   {
     id: "2",
@@ -157,7 +157,7 @@ export const LARGE_WEIRD = [
     price: 3.568,
     quantity: 1,
     isAvailable: true,
-    isAdvertised: false,
+    isPublicised: false,
   },
   {
     id: "3",
@@ -166,7 +166,7 @@ export const LARGE_WEIRD = [
     price: 0.0,
     quantity: 5,
     isAvailable: true,
-    isAdvertised: false,
+    isPublicised: false,
   },
   {
     id: "4",
@@ -175,7 +175,7 @@ export const LARGE_WEIRD = [
     price: 5.4985,
     quantity: 1,
     isAvailable: true,
-    isAdvertised: false,
+    isPublicised: false,
   },
   {
     id: "5",
@@ -184,7 +184,7 @@ export const LARGE_WEIRD = [
     price: 3.487,
     quantity: 1,
     isAvailable: true,
-    isAdvertised: false,
+    isPublicised: false,
   },
   {
     id: "6",
@@ -193,7 +193,7 @@ export const LARGE_WEIRD = [
     price: 3.356,
     quantity: 1,
     isAvailable: true,
-    isAdvertised: false,
+    isPublicised: false,
   },
   {
     id: "7",
@@ -202,7 +202,7 @@ export const LARGE_WEIRD = [
     price: 5.598,
     quantity: 1,
     isAvailable: true,
-    isAdvertised: false,
+    isPublicised: false,
   },
   {
     id: "8",
@@ -211,7 +211,7 @@ export const LARGE_WEIRD = [
     price: 2.567,
     quantity: 1,
     isAvailable: true,
-    isAdvertised: false,
+    isPublicised: false,
   },
   {
     id: "9",
@@ -220,7 +220,7 @@ export const LARGE_WEIRD = [
     price: 3.7,
     quantity: 1,
     isAvailable: true,
-    isAdvertised: false,
+    isPublicised: false,
   },
   {
     id: "10",
@@ -229,7 +229,7 @@ export const LARGE_WEIRD = [
     price: 4.678,
     quantity: 1,
     isAvailable: true,
-    isAdvertised: false,
+    isPublicised: false,
   },
 ];
 

@@ -1,12 +1,18 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import BasketCard from "./BasketCard.jsx";
-import { IMAGE_COMING_SOON } from "../../../../../../enums/product.jsx";
+import {
+  BASKET_MESSAGE,
+  IMAGE_COMING_SOON,
+} from "../../../../../../enums/product.jsx";
 import { findObjectById } from "../../../../../../utils/array.jsx";
 import OrderContext from "../../../../../../context/OrderContext.jsx";
 import { checkIfProductIsClicked } from "../../MainRightSide/Menu/helper.jsx";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { basketAnimation } from "../../../../../../theme/animations.jsx";
+import { formatPrice } from "../../../../../../utils/maths.jsx";
+import { convertStringToBoolean } from "../../../../../../utils/string.jsx";
+import Sticker from "../../../../../reusable-ui/Sticker.jsx";
 export default function BasketProducts() {
   const {
     username,
@@ -35,6 +41,9 @@ export default function BasketProducts() {
             timeout={500}
           >
             <div className="card-container">
+              {convertStringToBoolean(menuProduct.isPublicised) && (
+                <Sticker className="badge-new" />
+              )}
               <BasketCard
                 {...menuProduct}
                 imageSource={
@@ -55,6 +64,11 @@ export default function BasketProducts() {
                   productSelected.id
                 )}
                 className="card"
+                price={
+                  convertStringToBoolean(menuProduct.isAvailable)
+                    ? formatPrice(menuProduct.price)
+                    : BASKET_MESSAGE.NOT_AVAILABLE
+                }
               />
             </div>
           </CSSTransition>
@@ -81,6 +95,16 @@ const BasketProductsStyled = styled.div`
 
   .card-container {
     margin: 10px 16px;
+    position: relative;
+
+    .badge-new {
+      position: absolute;
+      z-index: 1;
+      bottom: 10%;
+      left: 21%;
+      transform: translateY(-21%);
+      transform: translateX(-5%);
+    }
   }
   &.card-container {
     /* border: 1px solid blue; */

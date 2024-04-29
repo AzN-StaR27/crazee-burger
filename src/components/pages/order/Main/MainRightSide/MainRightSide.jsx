@@ -4,6 +4,7 @@ import OrderContext from "../../../../../context/OrderContext.jsx";
 import { theme } from "../../../../../theme/index.js";
 import Admin from "./Admin/Admin.jsx";
 import Menu from "./Menu/Menu.jsx";
+import React from "react";
 
 export default function MainRightSide() {
   const { isModeAdmin } = useContext(OrderContext);

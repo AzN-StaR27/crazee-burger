@@ -1,3 +1,4 @@
+import React from "react";
 import Logo from "../../reusable-ui/Logo";
 import LoginForm from "./LoginForm";
 import styled from "styled-components";
@@ -10,7 +11,7 @@ export default function LoginPage() {
   //affichage
   return (
     <LoginPageStyled>
-      <Logo className={"logo-login-page"} /> <LoginForm />
+      <Logo className={"logo-login-page"} onClick={undefined} /> <LoginForm />
     </LoginPageStyled>
   );
 }
