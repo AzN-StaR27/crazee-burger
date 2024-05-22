@@ -43,7 +43,11 @@ export default function NavbarRightSide() {
 const NavbarRightSideStyled = styled.div`
   display: flex;
   align-items: center;
-  padding-right: 50px;
+
+  @media screen and (min-width: 770px) {
+    padding-right: 50px;
+  }
+
   /*
   .admin-button {
     background: lightblue;

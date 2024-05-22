@@ -27,5 +27,9 @@ const NavbarStyled = styled.nav`
     cursor: pointer;
   }
 
-  /* align-items: center; */
+  @media screen and (max-width: 615px) {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+  }
 `;
