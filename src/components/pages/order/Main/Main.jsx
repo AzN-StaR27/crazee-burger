@@ -2,11 +2,14 @@ import styled from "styled-components";
 import { theme } from "../../../../theme/index.js";
 import MainRightSide from "./MainRightSide/MainRightSide.jsx";
 import Basket from "./Basket/Basket.jsx";
+import { useContext } from "react";
+import OrderContext from "../../../../context/OrderContext.jsx";
 
 export default function Main() {
+  const { mainStyle } = useContext(OrderContext);
   return (
     <MainStyled>
-      <Basket />
+      {!mainStyle && <Basket />}
       <MainRightSide />
     </MainStyled>
   );
@@ -25,6 +28,11 @@ const MainStyled = styled.div`
   grid-template-columns: 25% 1fr;
 
   overflow: hidden;
+
+  @media screen and (max-width: 815px) {
+    grid-template-columns: 1fr;
+  }
+
   /* .menu-and-admin {
     position: relative;
     overflow-y: hidden;

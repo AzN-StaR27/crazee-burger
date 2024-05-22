@@ -30,4 +30,7 @@ export default createContext({
   basket: [],
   handleAddToBasket: () => {},
   handleDeleteBasketProduct: () => {},
+
+  mainStyle: false,
+  setMainStyle: () => {},
 });

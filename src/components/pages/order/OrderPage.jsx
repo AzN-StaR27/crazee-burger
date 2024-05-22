@@ -25,7 +25,12 @@ export default function OrderPage() {
     useMenu();
   const { basket, setBasket, handleAddToBasket, handleDeleteBasketProduct } =
     useBasket();
+  const [mainStyle, setMainStyle] = useState(false);
   const { username } = useParams();
+
+  const handleMainLayout = () => {
+    setMainStyle(!mainStyle);
+  };
 
   const handleProductSelected = async (idProductClicked) => {
     const productClickedOn = findObjectById(idProductClicked, menu);
@@ -61,6 +66,8 @@ export default function OrderPage() {
     handleAddToBasket,
     handleDeleteBasketProduct,
     handleProductSelected,
+    mainStyle,
+    handleMainLayout,
   };
   //On a pas besoin d'écrire isModeAdmin: isModeAdmin quand les "noms" sont les mêmes
 
