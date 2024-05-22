@@ -31,6 +31,12 @@ const LoginPageStyled = styled.div`
     transform: scale(2.5);
   }
 
+  @media screen and (max-width: 750px) {
+    .logo-login-page {
+      transform: scale(1.5);
+    }
+  }
+
   /* ::before {
     content: "";
     background: url("/images/burger-and-fries-background.jpg")

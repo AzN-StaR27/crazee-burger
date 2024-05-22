@@ -66,7 +66,7 @@ const LoginFormStyled = styled.form`
   flex-direction: column;
   font-family: "Amatic SC", sans-serif;
   max-width: 500px;
-  min-width: 400px;
+  /* min-width: 400px; */
   margin: 0 auto;
   padding: 40px ${theme.spacing.lg};
   border-radius: ${theme.borderRadius.round};
