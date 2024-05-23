@@ -53,7 +53,6 @@ export default function AdminTabs() {
 
 const AdminTabsStyled = styled.div`
   display: flex;
-  padding: 0 20px;
 
   .is-active {
     background-color: ${theme.colors.background_dark};
@@ -63,5 +62,8 @@ const AdminTabsStyled = styled.div`
 
   button {
     margin-left: 1px;
+  }
+  @media screen and (min-width: 402px) {
+    padding: 0 20px;
   }
 `;

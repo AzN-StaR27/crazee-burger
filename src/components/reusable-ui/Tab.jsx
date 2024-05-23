@@ -14,7 +14,10 @@ export default function Tab({ label, Icon, onClick, className }) {
 const TabStyled = styled.button`
   border: 1px solid blue;
   height: 43px;
-  padding: 0 22px;
+
+  @media screen and (min-width: 402px) {
+    padding: 0 22px;
+  }
 
   display: flex;
   justify-content: center;
@@ -23,7 +26,9 @@ const TabStyled = styled.button`
   cursor: pointer;
 
   position: relative;
-  left: 5%;
+  @media screen and (min-width: 402px) {
+    left: 5%;
+  }
   top: 1px;
 
   //fonts
